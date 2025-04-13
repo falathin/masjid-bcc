@@ -177,11 +177,54 @@
                                 <a class="py-2 inline-block md:text-white md:px-2 font-semibold" href="{{route('about')}}">Tentang
                                     Kami</a>
                             </li>
-                            <li class="md:ml-4">
-                                <!-- Perubahan: link ke route home + anchor #pray -->
-                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
-                                    href="{{ route('home') }}#pray">Jadwal Shalat</a>
+                            <!-- EVENT MASJID BUTTON -->
+                            <li class="relative md:ml-4">
+                                <button onclick="toggleEventMenu()" class="py-2 inline-block md:text-white md:px-2 font-semibold focus:outline-none">
+                                Event Masjid
+                                </button>
+
+                                <!-- Pop-up Menu dengan transisi -->
+                                <ul id="eventMenu" class="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-56 z-50 transition-all duration-300 opacity-0 scale-95 pointer-events-none">
+                                    <li>
+                                        <a href="{{ route('ikatan') }}" class="block px-4 py-2 hover:bg-gray-100">Ikatan Remaja Masjid</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('pesantren') }}" class="block px-4 py-2 hover:bg-gray-100">Pesantren Kilat Ramadhan</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('qurban') }}" class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri Item</a>
+                                    </li>
+                                </ul>
                             </li>
+
+                            <!-- SCRIPT -->
+                            <script>
+                                function toggleEventMenu() {
+                                const menu = document.getElementById('eventMenu');
+                                const isHidden = menu.classList.contains('pointer-events-none');
+
+                                if (isHidden) {
+                                    menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                                    menu.classList.add('opacity-100', 'scale-100');
+                                } else {
+                                    menu.classList.remove('opacity-100', 'scale-100');
+                                    menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                                }
+                                }
+
+                                // Optional: Klik di luar menu untuk menutupnya
+                                window.addEventListener('click', function(e) {
+                                const menu = document.getElementById('eventMenu');
+                                const button = document.querySelector('button[onclick="toggleEventMenu()"]');
+                                if (!menu.contains(e.target) && !button.contains(e.target)) {
+                                    menu.classList.remove('opacity-100', 'scale-100');
+                                    menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                                }
+                                });
+                            </script>
                             <li class="md:ml-4 lg:block md:hidden">
                                 <!-- Perubahan: link ke route home + anchor #pray -->
                                 <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
@@ -221,7 +264,7 @@
                     <!-- Kolom teks -->
                     <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="200">
                         <h3 class="text-white text-3xl md:text-5xl xl:text-5xl font-bold leading-tight">
-                            Hubungi Kami
+                                Hubungi Kami
                         </h3>
                         <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
                             Kami terbuka terhadap <span class="font-bold">saran, kritik, maupun pertanyaan</span> dari jamaah dan masyarakat sekitar. Silakan kirimkan pesan Anda melalui formulir yang tersedia. Kami akan berusaha memberikan tanggapan terbaik secepatnya.
@@ -257,11 +300,11 @@
 
                         <!-- Tombol aksi -->
                         <div class="mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="600">
-                            <a href="#form-kontak"
+                            <a href="https://wa.me/+62816973677"
                                 class="px-8 py-4 bg-teal-500 text-white rounded font-semibold text-center hover:bg-teal-600 hover:scale-105 transition-all duration-300 cursor-pointer">
-                                Kirim Pesan
+                                Kirim Pesan via WhatsApp
                             </a>
-                            <a href="#lokasi"
+                            <a href="https://maps.app.goo.gl/SmmmniMrLkKib5N79"
                                 class="px-8 py-4 bg-yellow-400 text-black rounded font-semibold text-center hover:bg-yellow-300 hover:scale-105 transition-all duration-300 cursor-pointer">
                                 Lihat Lokasi
                             </a>
@@ -572,218 +615,7 @@
         </section>
         <!-- end CTA Section -->
         <!-- start footer -->
-        <footer class="bg-gray-900 text-white px-6 sm:px-12 py-12 overflow-x-hidden" data-aos="fade-up"
-            data-aos-anchor-placement="top-bottom">
-            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-                <!-- Profil Masjid -->
-                <div data-aos="fade-right" data-aos-delay="100" data-aos-anchor-placement="top-bottom">
-                    <h3 class="font-bold text-3xl tracking-wide">Masjid Al-Ikhlas</h3>
-                    <p class="text-gray-400 mt-4 leading-relaxed">
-                        Masjid Al-Ikhlas adalah pusat kegiatan keagamaan dan sosial yang berdiri sejak tahun 2022 di
-                        BCC. Bergabunglah bersama kami dalam melaksanakan ibadah dan membangun komunitas yang harmonis.
-                    </p>
-
-                    <form class="flex items-center mt-6">
-                        <div class="w-full">
-                            <label class="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2"
-                                for="email-subscribe">
-                                Langganan Newsletter
-                            </label>
-                            <div class="relative">
-                                <input id="email-subscribe" type="email" placeholder="Masukkan Email Anda"
-                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-4 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                <button type="submit"
-                                    class="bg-teal-500 hover:bg-teal-400 text-white px-4 py-2 text-sm font-bold rounded absolute top-0 right-0 my-2 mr-2 transition duration-300">
-                                    Subscribe
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Navigasi Cepat -->
-                <div data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
-                    <h5 class="uppercase tracking-wider font-semibold text-gray-400">Navigasi Cepat</h5>
-                    <ul class="mt-4 space-y-3">
-                        <li>
-                            <a href="{{ route('home') }}"
-                                class="flex items-center text-gray-400 hover:text-teal-400 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none"
-                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                                Beranda
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('home')}}#pray"
-                                class="flex items-center text-gray-400 hover:text-teal-400 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none"
-                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                                Jadwal Sholat
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('bumm') }}"
-                                class="flex items-center text-gray-400 hover:text-teal-400 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none"
-                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                                BUMM
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('home') }}#infaq"
-                                class="flex items-center text-gray-400 hover:text-teal-400 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none"
-                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                                Infaq
-                            </a>
-                        </li>                        
-                        <li>
-                            <a href="{{ route('contact') }}"
-                                class="flex items-center text-gray-400 hover:text-teal-400 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none"
-                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                                Kontak
-                            </a>
-                        </li>
-                        <li>
-                            <button onclick="openModal()"
-                                class="flex items-center text-gray-400 hover:text-teal-400 transition-colors duration-300 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none"
-                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                                Pengurus Masjid
-                            </button>
-                        </li>
-                        <!-- Modal Pengurus Masjid -->
-                        <div id="pengurusModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm">
-                            <div class="bg-gradient-to-br from-white via-green-50 to-white rounded-2xl shadow-2xl max-w-4xl w-full p-8 relative border border-green-200">
-                                <!-- Tombol close -->
-                                <button onclick="closeModal()"
-                                    class="absolute top-3 right-4 text-gray-600 hover:text-red-500 text-2xl focus:outline-none transition duration-200 ease-in-out">
-                                    &times;
-                                </button>
-
-                                <!-- Judul -->
-                                <h2 class="text-3xl font-semibold text-center text-green-800 mb-4 tracking-wide">
-                                    🌙 Struktur Pengurus Masjid
-                                </h2>
-                                <p class="text-center text-sm text-green-600 mb-6 italic">"Menjadi pelayan rumah Allah adalah kehormatan tertinggi"</p>
-
-                                <!-- Gambar struktur -->
-                                <div class="flex justify-center">
-                                    <img src="{{ asset('images/struktur-pengurus-masjid.jpg') }}" alt="Struktur Pengurus Masjid"
-                                        class="max-h-[500px] object-contain rounded-lg shadow-md border border-green-100">
-                                </div>
-
-                                <!-- Footer (opsional) -->
-                                <div class="mt-6 text-center">
-                                    <button onclick="closeModal()"
-                                        class="inline-block px-6 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition duration-300 shadow">
-                                        Tutup
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <script>
-                            function openModal() {
-                                document.getElementById('pengurusModal').classList.remove('hidden');
-                                document.getElementById('pengurusModal').classList.add('flex');
-                            }
-
-                            function closeModal() {
-                                document.getElementById('pengurusModal').classList.remove('flex');
-                                document.getElementById('pengurusModal').classList.add('hidden');
-                            }
-                        </script>
-
-                    </ul>
-                </div>
-
-                <!-- Kontak dan Media Sosial -->
-                <div data-aos="fade-left" data-aos-delay="300" data-aos-anchor-placement="top-bottom">
-                    <h5 class="uppercase tracking-wider font-semibold text-gray-400">Kontak</h5>
-                    <ul class="mt-4 space-y-4">
-                        <li class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-teal-400" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M12,2C7.589,2,4,5.589,4,9.995C3.971,16.44,11.696,21.784,12,22c0,0,8.029-5.56,8-12C20,5.589,16.411,2,12,2z M12,14 c-2.21,0-4-1.79-4-4s1.79-4,4-4s4,1.79,4,4S14.21,14,12,14z" />
-                            </svg>
-                            <span class="ml-3 text-gray-400">Buahbatu, Kec. Bojongsoang, Kab. Bandung, Jawa Barat
-                                40287</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-teal-400" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M14.594,13.994l-1.66,1.66c-0.577-0.109-1.734-0.471-2.926-1.66c-1.193-1.193-1.553-2.354-1.661-2.926l1.661-1.66l0.701-0.701L5.295,3.293L4.594,3.994l-1,1C3.42,5.168,3.316,5.398,3.303,5.643c-0.015,0.25-0.302,6.172,4.291,10.766 C11.6,20.414,16.618,20.707,18,20.707c0.202,0,0.326-0.006,0.358-0.008c0.245-0.014,0.476-0.117,0.649-0.291l1-1l0.697-0.697l-5.414-5.414L14.594,13.994z" />
-                            </svg>
-                            <span class="ml-3 text-gray-400">+62 816-973-677</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-teal-400" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M20,4H4C2.896,4,2,4.896,2,6v12c0,1.104,0.896,2,2,2h16c1.104,0,2-0.896,2-2V6C22,4.896,21.104,4,20,4z M20,8.7l-8,5.334 L4,8.7V6.297l8,5.333l8-5.333V8.7z" />
-                            </svg>
-                            <span class="ml-3 text-gray-400">contact@masjidalikhlasbcc.com</span>
-                        </li>
-                    </ul>
-
-                    <!-- Media Sosial -->
-                    <div class="mt-6 flex space-x-4">
-                        <a href="#" target="_blank" rel="noopener noreferrer"
-                            class="text-teal-400 hover:text-white transition-colors duration-300" title="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M20,3H4C3.447,3,3,3.448,3,4v16c0,0.552,0.447,1,1,1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325,1.42-3.592,3.5-3.592 c0.699-0.002,1.399,0.034,2.095,0.107v2.42h-1.435c-1.128,0-1.348,0.538-1.348,1.325v1.735h2.697l-0.35,2.725h-2.348V21H20 c0.553,0,1-0.448,1-1V4C21,3.448,20.553,3,20,3z" />
-                            </svg>
-                        </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"
-                            class="text-teal-400 hover:text-white transition-colors duration-300" title="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M19.633,7.997c0.013,0.175,0.013,0.349,0.013,0.523c0,5.325-4.053,11.461-11.46,11.461c-2.282,0-4.402-0.661-6.186-1.809 c0.324,0.037,0.636,0.05,0.973,0.05c1.883,0,3.616-0.636,5.001-1.721c-1.771-0.037-3.255-1.197-3.767-2.793 c0.249,0.037,0.499,0.062,0.761,0.062c0.361,0,0.724-0.05,1.061-0.137c-1.847-0.374-3.23-1.995-3.23-3.953v-0.05 c0.537,0.299,1.16,0.486,1.82,0.511C3.534,9.419,2.823,8.184,2.823,6.787c0-0.748,0.199-1.434,0.548-2.032 c1.983,2.443,4.964,4.04,8.306,4.215c-0.062-0.3-0.1-0.611-0.1-0.923c0-2.22,1.796-4.028,4.028-4.028 c1.16,0,2.207,0.486,2.943,1.272c0.91-0.175,1.782-0.512,2.556-0.973c-0.299,0.935-0.936,1.721-1.771,2.22 c0.811-0.088,1.597-0.312,2.319-0.624C21.104,6.712,20.419,7.423,19.633,7.997z" />
-                            </svg>
-                        </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"
-                            class="text-teal-400 hover:text-white transition-colors duration-300" title="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M21.593,7.203c-0.23-0.858-0.905-1.535-1.762-1.766C18.265,5.007,12,5,12,5S5.736,4.993,4.169,5.404 c-0.84,0.229-1.534,0.921-1.766,1.778c-0.413,1.566-0.417,4.814-0.417,4.814s-0.004,3.264,0.406,4.814 c0.23,0.857,0.905,1.534,1.763,1.765c1.582,0.43,7.83,0.437,7.83,0.437s6.265,0.007,7.831-0.403c0.856-0.23,1.534-0.906,1.767-1.763 C21.997,15.281,22,12.034,22,12.034S22.02,8.769,21.593,7.203z M9.996,15.005l0.005-6l5.207,3.005L9.996,15.005z" />
-                            </svg>
-                        </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"
-                            class="text-teal-400 hover:text-white transition-colors duration-300" title="YouTube">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M21.593,7.203c-0.23-0.858-0.905-1.535-1.762-1.766C18.265,5.007,12,5,12,5S5.736,4.993,4.169,5.404 c-0.84,0.229-1.534,0.921-1.766,1.778c-0.413,1.566-0.417,4.814-0.417,4.814s-0.004,3.264,0.406,4.814 c0.23,0.857,0.905,1.534,1.763,1.765c1.582,0.43,7.83,0.437,7.83,0.437s6.265,0.007,7.831-0.403c0.856-0.23,1.534-0.906,1.767-1.763 C21.997,15.281,22,12.034,22,12.034S22.02,8.769,21.593,7.203z M9.996,15.005l0.005-6l5.207,3.005L9.996,15.005z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-700 mt-12 pt-6 text-center">
-                <p class="text-sm text-gray-400">&copy; 2025 Masjid Al-Ikhlas. All Rights Reserved.</p>
-            </div>
-        </footer>
+        @include('partials.footer')
         <!-- end footer -->
     </main>
 

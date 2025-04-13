@@ -168,42 +168,73 @@
                 <div class="hidden md:block w-full md:w-auto" id="menu">
                     <nav class="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none"
                         data-aos="fade-up" data-aos-delay="600">
-                        <ul class="md:flex items-center">
+
+                        <ul class="md:flex items-center justify-center space-x-4 relative z-10">
                             <li>
-                                <a class="py-2 inline-block md:text-white lg:block font-semibold"
-                                    href="{{ route('home') }}">Beranda</a>
+                                <a href="{{ route('home') }}"
+                                    class="py-2 inline-block md:text-white font-semibold">Beranda</a>
                             </li>
-                            <li class="md:ml-4">
-                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
-                                    href="{{ route('about') }}#pray">Tentang Kami</a>
+                            <li>
+                                <a href="{{ route('about') }}"
+                                    class="py-2 inline-block md:text-white font-semibold">Tentang Kami</a>
                             </li>
+
                             <!-- EVENT MASJID BUTTON -->
-                            <li class="relative md:ml-4">
-                                <button onclick="toggleEventMenu()" class="py-2 inline-block md:text-white md:px-2 font-semibold focus:outline-none">
-                                Event Masjid
+                            <li class="relative">
+                                <button onclick="toggleEventMenu()"
+                                    class="py-2 px-4 font-semibold text-white border-b-4 border-transparent rounded-md bg-blue-600 hover:bg-blue-700 transition">
+                                    Event Masjid
                                 </button>
 
-                                <!-- Pop-up Menu dengan transisi -->
-                                <ul id="eventMenu" class="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-56 z-50 transition-all duration-300 opacity-0 scale-95 pointer-events-none">
+                                <!-- Dropdown -->
+                                <ul id="eventMenu"
+                                    class="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg min-w-[220px] z-50 transition-all duration-300 opacity-0 scale-95 pointer-events-none overflow-visible">
                                     <li>
-                                        <a href="{{ route('ikatan') }}" class="block px-4 py-2 hover:bg-gray-100">Ikatan Remaja Masjid</a>
+                                        <a href="{{ route('ikatan') }}"
+                                            class="block px-4 py-2 hover:bg-gray-100 {{ request()->routeIs('ikatan') ? 'bg-gray-100 font-semibold text-blue-600' : '' }}">
+                                            Ikatan Remaja Masjid
+                                        </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('pesantren') }}" class="block px-4 py-2 hover:bg-gray-100">Pesantren Kilat Ramadhan</a>
+                                        <a href="{{ route('pesantren') }}"
+                                            class="block px-4 py-2 hover:bg-gray-100 {{ request()->routeIs('pesantren') ? 'bg-gray-100 font-semibold text-blue-600' : '' }}">
+                                            Pesantren Kilat Ramadhan
+                                        </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('qurban') }}" class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
+                                        <a href="{{ route('qurban') }}"
+                                            class="block px-4 py-2 hover:bg-gray-100 {{ request()->routeIs('qurban') ? 'bg-gray-100 font-semibold text-blue-600' : '' }}">
+                                            Qurban
+                                        </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri Item</a>
+                                        <a href="{{ route('galery') }}"
+                                            class="block px-4 py-2 hover:bg-gray-100 {{ request()->routeIs('galery') ? 'bg-gray-100 font-semibold text-blue-600' : '' }}">
+                                            Galeri Item
+                                        </a>
                                     </li>
-                                    
                                 </ul>
                             </li>
 
-                            <!-- SCRIPT -->
-                            <script>
-                                function toggleEventMenu() {
+                            <li>
+                                <a href="{{ route('news') }}"
+                                    class="py-2 inline-block md:text-white font-semibold">Berita</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('contact') }}"
+                                    class="py-2 inline-block md:text-white font-semibold">Kontak Kami</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('login') }}"
+                                    class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white transition-all duration-300 ease-in-out hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
+                                    Log In As Admin
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- SCRIPT -->
+                        <script>
+                            function toggleEventMenu() {
                                 const menu = document.getElementById('eventMenu');
                                 const isHidden = menu.classList.contains('pointer-events-none');
 
@@ -214,258 +245,239 @@
                                     menu.classList.remove('opacity-100', 'scale-100');
                                     menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
                                 }
-                                }
+                            }
 
-                                // Optional: Klik di luar menu untuk menutupnya
-                                window.addEventListener('click', function(e) {
+                            // Close on click outside
+                            window.addEventListener('click', function(e) {
                                 const menu = document.getElementById('eventMenu');
                                 const button = document.querySelector('button[onclick="toggleEventMenu()"]');
                                 if (!menu.contains(e.target) && !button.contains(e.target)) {
                                     menu.classList.remove('opacity-100', 'scale-100');
                                     menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
                                 }
-                                });
-                            </script>
-                            <li class="md:ml-4 lg:block md:hidden">
-                                <!-- Perubahan: link ke route home + anchor #pray -->
-                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
-                                    href="{{ route('news') }}">Berita</a>
-                            </li>
-                            <li class="md:ml-4 lg:block md:hidden">
-                                <!-- Perubahan: link ke route home + anchor #pray -->
-                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
-                                    href="{{ route('contact') }}">Kontak kami</a>
-                            </li>
-                            <li class="md:ml-6 mt-3 md:mt-0">
-                                <a href="{{ route('login') }}"
-                                    class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
-                                           transition-all duration-300 ease-in-out 
-                                           hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
-                                    Log In As Admin
-                                </a>
-                            </li>                            
-                        </ul>
+                            });
+                        </script>
                     </nav>
                 </div>
         </header>
         <!-- end header -->
-        <!-- start hero BUMM -->
+        <!-- start hero Pesantren Kilat -->
         <div class="bg-gray-100" id="heroHeader">
-        <section class="relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex items-center min-h-screen">
-            <!-- Background image dengan opacity -->
-            <div class="absolute top-0 left-0 w-full h-full z-0" data-aos="fade">
-            <img src="{{ asset('images/cover-bg.jpg') }}" alt="Background" class="w-full h-full object-cover opacity-20">
-            </div>
+            <section class="relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex items-center min-h-screen">
+                <!-- Background image dengan opacity -->
+                <div class="absolute top-0 left-0 w-full h-full z-0" data-aos="fade">
+                    <img src="{{ asset('images/cover-bg.jpg') }}" alt="Background" class="w-full h-full object-cover opacity-20">
+                </div>
 
-            <!-- Container teks dan slider -->
-            <div class="relative z-10 flex flex-col lg:flex-row items-center w-full">
-            <!-- Kolom teks -->
-            <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="200">
-                <h3 class="text-white text-3xl md:text-5xl xl:text-5xl font-bold leading-tight">
-                Badan Usaha Milik Masjid
-                </h3>
-                <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
-                Dukung usaha masjid melalui pembelian produk makanan favorit masyarakat!
+                <!-- Container teks dan slider -->
+                <div class="relative z-10 flex flex-col lg:flex-row items-center w-full">
+                    <!-- Kolom teks -->
+                    <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="200">
+                        <h3 class="text-white text-3xl md:text-5xl xl:text-5xl font-bold leading-tight">
+                            Pesantren Kilat Ramadhan
+                        </h3>
+                        <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
+                            Pesantren Kilat Ramadhan diselenggarakan oleh Masjid Al-Ikhlas BCC di kawasan Buah Batu, Bandung.
+                            Acara ini bertujuan memberikan pembekalan keislaman secara intensif dalam suasana Ramadhan yang penuh berkah.
+                        </p>
+                        <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
+                            Para peserta mengikuti sesi pengajian, diskusi, dan tadarus yang dirancang untuk memperdalam pemahaman serta meningkatkan keimanan.
+                        </p>
+                        <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
+                            Bergabunglah bersama kami dan rasakan semangat Ramadhan yang menyatukan umat dalam kebaikan dan keberkahan.
+                        </p>
+
+                        <!-- Tombol aksi -->
+                        <div class="mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="600">
+                            <a href="https://wa.me/+62816973677"
+                                class="px-8 py-4 bg-teal-500 text-white rounded font-semibold text-center hover:bg-teal-600 hover:scale-105 transition-all duration-300 cursor-pointer">
+                                Hubungi Kami
+                            </a>
+                            <a href="{{ route('pesantren') }}"
+                                class="px-8 py-4 bg-yellow-400 text-black rounded font-semibold text-center hover:bg-yellow-300 hover:scale-105 transition-all duration-300 cursor-pointer">
+                                Lihat Jadwal Pesantren
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kolom slider gambar -->
+                    <div class="lg:w-1/2 mt-8 lg:mt-0 lg:pl-12" data-aos="fade-left" data-aos-delay="800">
+                        <div id="hero-slider" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer" style="border: 1px solid #ccc;">
+                            <div id="slider-inner" class="flex transition-transform duration-500 ease-in-out">
+                                <!-- Ganti URL gambar berikut sesuai dengan dokumentasi pesantren kilat di masjid -->
+                                <img src="images/pesantren-slider-1.jpg" alt="Sesi Tadarus" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                                <img src="images/pesantren-slider-2.jpg" alt="Diskusi Keagamaan" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                                <img src="images/pesantren-slider-3.jpg" alt="Pengajian Ramadhan" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Script slider -->
+                <script>
+                    const sliderInner = document.getElementById("slider-inner");
+                    const slides = sliderInner.querySelectorAll("img");
+                    let currentSlide = 0;
+                    const totalSlides = slides.length;
+
+                    function nextSlide() {
+                        currentSlide = (currentSlide + 1) % totalSlides;
+                        sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    }
+
+                    let slideInterval = setInterval(nextSlide, 3000);
+
+                    let startX = 0;
+                    let moveX = 0;
+
+                    sliderInner.addEventListener("touchstart", (e) => {
+                        clearInterval(slideInterval);
+                        startX = e.touches[0].clientX;
+                    });
+
+                    sliderInner.addEventListener("touchmove", (e) => {
+                        moveX = e.touches[0].clientX - startX;
+                    });
+
+                    sliderInner.addEventListener("touchend", () => {
+                        if (moveX > 50) {
+                            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                        } else if (moveX < -50) {
+                            currentSlide = (currentSlide + 1) % totalSlides;
+                        }
+                        sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+                        slideInterval = setInterval(nextSlide, 3000);
+                        moveX = 0;
+                    });
+
+                    document.getElementById("hero-slider").addEventListener("click", () => {
+                        clearInterval(slideInterval);
+                        nextSlide();
+                        slideInterval = setInterval(nextSlide, 3000);
+                    });
+                </script>
+            </section>
+        </div>
+        <!-- end hero Pesantren Kilat -->
+
+        <!-- start section galeri kegiatan masjid -->
+        <section id="gallery" class="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-24">
+            <!-- Header Section -->
+            <div class="mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 text-center">
+                    Galeri Kegiatan Pesantren Kilat Ramadhan
+                </h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-center">
+                    Saksikan momen-momen penuh keberkahan dalam kegiatan Pesantren Kilat Ramadhan yang diselenggarakan
+                    di Masjid Al-Ikhlas.
+                    Klik pada gambar untuk melihat detail kegiatan secara lebih besar.
                 </p>
-                <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
-                Dari makanan ringan hingga berat, semua dibuat dengan semangat kebersamaan dan keberkahan.
-                </p>
+            </div>
 
-                <!-- Tombol aksi -->
-                <div class="mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="600">
-                <a href="https://wa.me/+62816973677" class="px-8 py-4 bg-teal-500 text-white rounded font-semibold text-center hover:bg-teal-600 hover:scale-105 transition-all duration-300 cursor-pointer">
-                    Hubungi Kami
-                </a>
-                <a href="{{route('bumm')}}" class="px-8 py-4 bg-yellow-400 text-black rounded font-semibold text-center hover:bg-yellow-300 hover:scale-105 transition-all duration-300 cursor-pointer">
-                    Lihat Semua Produk
-                </a>
+            <!-- Gallery Grid -->
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" data-aos="fade-up" data-aos-delay="100">
+                <!-- Gallery Item 1 -->
+                <div class="relative group">
+                    <img src="https://source.unsplash.com/600x400/?mosque,ramadhan" alt="Pesantren Kilat Ramadhan"
+                        class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+                        onclick="openGalleryModal(this.src)">
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="relative group">
+                    <img src="https://source.unsplash.com/600x400/?prayer,ramadhan" alt="Kegiatan Pesantren"
+                        class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+                        onclick="openGalleryModal(this.src)">
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="relative group">
+                    <img src="https://source.unsplash.com/600x400/?quran,ramadhan" alt="Pengajian Ramadhan"
+                        class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+                        onclick="openGalleryModal(this.src)">
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="relative group">
+                    <img src="https://source.unsplash.com/600x400/?mosque,community,ramadhan"
+                        alt="Kegiatan Sosial Pesantren"
+                        class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+                        onclick="openGalleryModal(this.src)">
+                </div>
+                <!-- Gallery Item 5 -->
+                <div class="relative group">
+                    <img src="https://source.unsplash.com/600x400/?imam,ramadhan" alt="Sesi Kajian Pesantren"
+                        class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+                        onclick="openGalleryModal(this.src)">
+                </div>
+                <!-- Gallery Item 6 -->
+                <div class="relative group">
+                    <img src="https://source.unsplash.com/600x400/?mosque,night,ramadhan"
+                        alt="Suasana Malam Pesantren"
+                        class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+                        onclick="openGalleryModal(this.src)">
                 </div>
             </div>
 
-            <!-- Kolom slider gambar -->
-            <div class="lg:w-1/2 mt-8 lg:mt-0 lg:pl-12" data-aos="fade-left" data-aos-delay="800">
-                <div id="hero-slider" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer" style="border: 1px solid #ccc;">
-                <div id="slider-inner" class="flex transition-transform duration-500 ease-in-out">
-                    <img src="images/makanan-slider-1.jpg" alt="Nasi Goreng Berkah" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
-                    <img src="images/makanan-slider-2.jpg" alt="Tahu Pedas Crispy" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
-                    <img src="images/makanan-slider-3.jpg" alt="Donat Manis Masjid" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
-                </div>
+            <!-- Gallery Modal -->
+            <div id="galleryModal"
+                class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 hidden z-50">
+                <div class="relative">
+                    <button onclick="closeGalleryModal()"
+                        class="absolute top-0 right-0 m-4 text-white text-4xl font-bold focus:outline-none">&times;</button>
+                    <img id="galleryModalImage" src="" alt="Detail Gambar"
+                        class="max-w-full max-h-screen rounded-lg shadow-xl">
                 </div>
             </div>
-            </div>
+        </section>
+        <!-- end section galeri kegiatan masjid -->
 
-            <!-- Script slider -->
-            <script>
-            const sliderInner = document.getElementById("slider-inner");
-            const slides = sliderInner.querySelectorAll("img");
-            let currentSlide = 0;
-            const totalSlides = slides.length;
-
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+        <!-- Script Modal Gallery -->
+        <script>
+            function openGalleryModal(src) {
+                const modal = document.getElementById('galleryModal');
+                const modalImage = document.getElementById('galleryModalImage');
+                modalImage.src = src;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Mencegah scroll latar belakang
             }
 
-            let slideInterval = setInterval(nextSlide, 3000);
+            function closeGalleryModal() {
+                const modal = document.getElementById('galleryModal');
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Mengembalikan scroll
+            }
 
-            let startX = 0;
-            let moveX = 0;
-
-            sliderInner.addEventListener("touchstart", (e) => {
-                clearInterval(slideInterval);
-                startX = e.touches[0].clientX;
-            });
-
-            sliderInner.addEventListener("touchmove", (e) => {
-                moveX = e.touches[0].clientX - startX;
-            });
-
-            sliderInner.addEventListener("touchend", () => {
-                if (moveX > 50) {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                } else if (moveX < -50) {
-                currentSlide = (currentSlide + 1) % totalSlides;
+            // Tutup modal jika klik di luar gambar
+            document.getElementById('galleryModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeGalleryModal();
                 }
-                sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
-                slideInterval = setInterval(nextSlide, 3000);
-                moveX = 0;
             });
+        </script>
 
-            document.getElementById("hero-slider").addEventListener("click", () => {
-                clearInterval(slideInterval);
-                nextSlide();
-                slideInterval = setInterval(nextSlide, 3000);
+        <!-- Inisialisasi AOS (Animate On Scroll) -->
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 800,
+                once: true
             });
-            </script>
-        </section>
-        </div>
-        <!-- end hero BUMM -->
+        </script>
 
-        <!-- start section Koprotin - Warung Kopi & Cemilan -->
-        <section id="koprotin" class="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-24">
-            <!-- Header Section -->
-            <div class="mb-12 text-center" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900">
-                    Koprotin
-                </h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-justify leading-relaxed">
-                    Koprotin adalah usaha kecil milik Masjid Al-Ikhlas Buana Citra Ciwastra yang berada di depan sebelah
-                    kanan masjid.
-                    Menyediakan kopi, roti, indomie, dan piscok dengan harga ramah di kantong. Setiap pembelian di sini
-                    juga ikut menyumbang untuk masjid,
-                    karena sebagian pemasukan akan digunakan untuk keperluan masjid. Beli di sini, sama dengan sedekah
-                    juga.
-                </p>
-            </div>
 
-            <!-- Grid Menu -->
-            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4" data-aos="fade-up" data-aos-delay="200">
-                <!-- Card Menu Kopi -->
-                <div
-                    class="article-card bg-gray-50 border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center transition-transform duration-300 hover:scale-105">
-                    <div class="w-24 h-24 mb-4">
-                        <img src="https://source.unsplash.com/collection/190727/100x100?coffee" alt="Kopi"
-                            class="w-full h-full object-cover rounded-full">
-                    </div>
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Kopi</h4>
-                    <p class="text-gray-600 mb-4">Rp 5.000</p>
-                    <!-- Quantity Selector -->
-                    <div class="flex items-center space-x-2 mb-4">
-                        <button type="button"
-                            class="quantity-decrease bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">–</button>
-                        <span class="quantity-value font-semibold text-gray-800" data-value="0">0</span>
-                        <button type="button"
-                            class="quantity-increase bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">+</button>
-                    </div>
-                    <!-- Tombol Beli dengan link dinamis ke WhatsApp -->
-                    <a href="https://wa.me/6285210724904" target="_blank"
-                        class="buy-btn px-4 py-2 bg-blue-500 text-white rounded-md font-semibold transition hover:bg-blue-600"
-                        data-item="Kopi">
-                        Beli
-                    </a>
-                </div>
+        <!-- Inisialisasi AOS (Animate On Scroll) -->
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        </script>
 
-                <!-- Card Menu Roti Kukus & Bakar -->
-                <div
-                    class="article-card bg-gray-50 border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center transition-transform duration-300 hover:scale-105">
-                    <div class="w-24 h-24 mb-4">
-                        <img src="https://source.unsplash.com/collection/190727/100x100?bread"
-                            alt="Roti Kukus & Bakar" class="w-full h-full object-cover rounded-full">
-                    </div>
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Roti Kukus & Bakar</h4>
-                    <p class="text-gray-600 mb-4">Rp 6.000</p>
-                    <!-- Quantity Selector -->
-                    <div class="flex items-center space-x-2 mb-4">
-                        <button type="button"
-                            class="quantity-decrease bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">–</button>
-                        <span class="quantity-value font-semibold text-gray-800" data-value="0">0</span>
-                        <button type="button"
-                            class="quantity-increase bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">+</button>
-                    </div>
-                    <a href="https://wa.me/6285210724904" target="_blank"
-                        class="buy-btn px-4 py-2 bg-blue-500 text-white rounded-md font-semibold transition hover:bg-blue-600"
-                        data-item="Roti Kukus & Bakar">
-                        Beli
-                    </a>
-                </div>
 
-                <!-- Card Menu Indomie -->
-                <div
-                    class="article-card bg-gray-50 border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center transition-transform duration-300 hover:scale-105">
-                    <div class="w-24 h-24 mb-4">
-                        <img src="https://source.unsplash.com/collection/190727/100x100?noodles" alt="Indomie"
-                            class="w-full h-full object-cover rounded-full">
-                    </div>
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Indomie</h4>
-                    <p class="text-gray-600 mb-4">Rp 10.000</p>
-                    <!-- Quantity Selector -->
-                    <div class="flex items-center space-x-2 mb-4">
-                        <button type="button"
-                            class="quantity-decrease bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">–</button>
-                        <span class="quantity-value font-semibold text-gray-800" data-value="0">0</span>
-                        <button type="button"
-                            class="quantity-increase bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">+</button>
-                    </div>
-                    <a href="https://wa.me/6285210724904" target="_blank"
-                        class="buy-btn px-4 py-2 bg-blue-500 text-white rounded-md font-semibold transition hover:bg-blue-600"
-                        data-item="Indomie">
-                        Beli
-                    </a>
-                </div>
 
-                <!-- Card Menu Baru: Piscok -->
-                <div
-                    class="article-card bg-gray-50 border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center transition-transform duration-300 hover:scale-105">
-                    <div class="w-24 h-24 mb-4">
-                        <img src="https://source.unsplash.com/collection/190727/100x100?chocolate" alt="Piscok"
-                            class="w-full h-full object-cover rounded-full">
-                    </div>
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Piscok</h4>
-                    <p class="text-gray-600 mb-4">Rp 8.000</p>
-                    <!-- Quantity Selector -->
-                    <div class="flex items-center space-x-2 mb-4">
-                        <button type="button"
-                            class="quantity-decrease bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">–</button>
-                        <span class="quantity-value font-semibold text-gray-800" data-value="0">0</span>
-                        <button type="button"
-                            class="quantity-increase bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">+</button>
-                    </div>
-                    <a href="https://wa.me/6285210724904" target="_blank"
-                        class="buy-btn px-4 py-2 bg-blue-500 text-white rounded-md font-semibold transition hover:bg-blue-600"
-                        data-item="Piscok">
-                        Beli
-                    </a>
-                </div>
-            </div>
-
-            <!-- Optional Footer Text -->
-            <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="400">
-                <p class="text-gray-500 text-sm">
-                    Koprotin – Menu sederhana untuk warga dan keluarga di lingkungan Masjid Al-Ikhlas.
-                </p>
-            </div>
-        </section>
-        <!-- end section Koprotin -->
 
         <!-- JS Quantity Selector & Update Pesan WhatsApp -->
         <script>
@@ -514,6 +526,12 @@
             });
         </script>
 
+
+
+
+
+        <!-- Inisialisasi AOS (Animate On Scroll) -->
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init({
