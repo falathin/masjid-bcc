@@ -31,14 +31,19 @@
       <!-- Kategori -->
       <div>
         <label for="category" class="block text-lg font-medium text-gray-700">Kategori</label>
-        <select name="category" id="category" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-masjid-blue">
-          <option value="">Pilih Kategori</option>
-          <option value="pesantren kilat" {{ old('category') == 'pesantren kilat' ? 'selected' : '' }}>Pesantren Kilat</option>
-          <option value="qurban" {{ old('category') == 'qurban' ? 'selected' : '' }}>Qurban</option>
-          <option value="kajian agama" {{ old('category') == 'kajian agama' ? 'selected' : '' }}>Kajian Agama</option>
-          <option value="bakti sosial" {{ old('category') == 'bakti sosial' ? 'selected' : '' }}>Bakti Sosial</option>
-          <!-- Tambahkan opsi lainnya sesuai kebutuhan -->
-        </select>
+          <select name="category" id="category" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-masjid-blue">
+            <option value="">Pilih Kategori</option>
+            <option value="Pesantren kilat" {{ old('category') == 'Pesantren kilat' ? 'selected' : '' }}>Pesantren Kilat</option>
+            <option value="Qurban" {{ old('category') == 'Qurban' ? 'selected' : '' }}>Qurban</option>
+            <option value="Kajian agama" {{ old('category') == 'Kajian agama' ? 'selected' : '' }}>Kajian Agama</option>
+            <option value="Bakti sosial" {{ old('category') == 'Bakti sosial' ? 'selected' : '' }}>Bakti Sosial</option>
+            <option value="Pembangunan masjid" {{ old('category') == 'Pembangunan masjid' ? 'selected' : '' }}>Pembangunan Masjid</option>
+            <option value="Santunan anak yatim" {{ old('category') == 'Santunan anak yatim' ? 'selected' : '' }}>Santunan Anak Yatim</option>
+            <option value="Perbaikan fasilitas" {{ old('category') == 'Perbaikan fasilitas' ? 'selected' : '' }}>Perbaikan Fasilitas</option>
+            <option value="Kegiatan ramadhan" {{ old('category') == 'Kegiatan ramadhan' ? 'selected' : '' }}>Kegiatan Ramadhan</option>
+            <option value="Zakat fitrah" {{ old('category') == 'Zakat fitrah' ? 'selected' : '' }}>Zakat Fitrah</option>
+            <option value="Operasional masjid" {{ old('category') == 'Operasional masjid' ? 'selected' : '' }}>Operasional Masjid</option>
+          </select>
         @error('category')
           <span class="text-red-500 text-sm">{{ $message }}</span>
         @enderror

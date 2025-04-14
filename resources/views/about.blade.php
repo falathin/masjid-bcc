@@ -181,51 +181,57 @@
                             </li>
                             <!-- EVENT MASJID BUTTON -->
                             <li class="relative md:ml-4">
-                              <button onclick="toggleEventMenu()" class="py-2 inline-block md:text-white md:px-2 font-semibold focus:outline-none">
-                                Event Masjid
-                              </button>
+                                <button onclick="toggleEventMenu()"
+                                    class="py-2 inline-block md:text-white md:px-2 font-semibold focus:outline-none">
+                                    Event Masjid
+                                </button>
 
-                              <!-- Pop-up Menu dengan transisi -->
-                              <ul id="eventMenu" class="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-56 z-50 transition-all duration-300 opacity-0 scale-95 pointer-events-none">
-                                <li>
-                                  <a href="{{ route('ikatan') }}" class="block px-4 py-2 hover:bg-gray-100">Ikatan Remaja Masjid</a>
-                                </li>
-                                <li>
-                                  <a href="{{ route('pesantren') }}" class="block px-4 py-2 hover:bg-gray-100">Pesantren Kilat Ramadhan</a>
-                                </li>
-                                <li>
-                                  <a href="{{ route('qurban') }}" class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
-                                </li>
-                                <li>
-                                  <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri Item</a>
-                                </li>                                
-                              </ul>
+                                <!-- Pop-up Menu dengan transisi -->
+                                <ul id="eventMenu"
+                                    class="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-56 z-50 transition-all duration-300 opacity-0 scale-95 pointer-events-none">
+                                    <li>
+                                        <a href="{{ route('ikatan') }}" class="block px-4 py-2 hover:bg-gray-100">Ikatan
+                                            Remaja Masjid</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('pesantren') }}"
+                                            class="block px-4 py-2 hover:bg-gray-100">Pesantren Kilat Ramadhan</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('qurban') }}"
+                                            class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri
+                                            Item</a>
+                                    </li>
+                                </ul>
                             </li>
 
                             <!-- SCRIPT -->
                             <script>
-                              function toggleEventMenu() {
-                                const menu = document.getElementById('eventMenu');
-                                const isHidden = menu.classList.contains('pointer-events-none');
+                                function toggleEventMenu() {
+                                    const menu = document.getElementById('eventMenu');
+                                    const isHidden = menu.classList.contains('pointer-events-none');
 
-                                if (isHidden) {
-                                  menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-                                  menu.classList.add('opacity-100', 'scale-100');
-                                } else {
-                                  menu.classList.remove('opacity-100', 'scale-100');
-                                  menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                                    if (isHidden) {
+                                        menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                                        menu.classList.add('opacity-100', 'scale-100');
+                                    } else {
+                                        menu.classList.remove('opacity-100', 'scale-100');
+                                        menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                                    }
                                 }
-                              }
 
-                              // Optional: Klik di luar menu untuk menutupnya
-                              window.addEventListener('click', function(e) {
-                                const menu = document.getElementById('eventMenu');
-                                const button = document.querySelector('button[onclick="toggleEventMenu()"]');
-                                if (!menu.contains(e.target) && !button.contains(e.target)) {
-                                  menu.classList.remove('opacity-100', 'scale-100');
-                                  menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                                }
-                              });
+                                // Optional: Klik di luar menu untuk menutupnya
+                                window.addEventListener('click', function(e) {
+                                    const menu = document.getElementById('eventMenu');
+                                    const button = document.querySelector('button[onclick="toggleEventMenu()"]');
+                                    if (!menu.contains(e.target) && !button.contains(e.target)) {
+                                        menu.classList.remove('opacity-100', 'scale-100');
+                                        menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                                    }
+                                });
                             </script>
                             <li class="md:ml-4 lg:block md:hidden">
                                 <!-- Perubahan: link ke route home + anchor #pray -->
@@ -244,7 +250,7 @@
                                            hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
                                     Log In As Admin
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -252,308 +258,374 @@
         <!-- end header -->
         <!-- start hero BUMM -->
         <div class="bg-gray-100" id="heroHeader">
-            <section class="relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex items-center min-h-screen">
-            <!-- Background image dengan opacity -->
-            <div class="absolute top-0 left-0 w-full h-full z-0" data-aos="fade">
-                <img src="{{ asset('images/cover-bg.jpg') }}" alt="Background" class="w-full h-full object-cover opacity-20">
-            </div>
-        
-            <!-- Container teks dan slider -->
-            <div class="relative z-10 flex flex-col lg:flex-row items-center w-full">
-                <!-- Kolom teks -->
-                <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="200">
-             <h3 class="text-white text-3xl md:text-5xl xl:text-5xl font-bold leading-tight">
-                        Masjid Al-Ikhlas BCC
-                      </h3>
-                      <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
-                        Masjid Al-Ikhlas BCC yang berlokasi di kawasan Buah Batu, Bandung, hadir sebagai pusat spiritual dan sosial bagi warga sekitar.
-                      </p>
-                      <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
-                        Masjid ini menjadi tempat berkumpul, berbagi ilmu, dan mempererat silaturahmi antar warga dengan nuansa keislaman yang kuat.
-                      </p>
-                      <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
-                        Dengan fasilitas yang terus dikembangkan dan program keagamaan yang aktif, Masjid Al-Ikhlas BCC berkomitmen menjadi cahaya kebaikan di tengah masyarakat.
-                      </p>
-                      
-        
-                <!-- Tombol aksi -->
-                <div class="mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="600">
-                    <a href="https://wa.me/+62816973677" class="px-8 py-4 bg-teal-500 text-white rounded font-semibold text-center hover:bg-teal-600 hover:scale-105 transition-all duration-300 cursor-pointer">
-                    Hubungi Kami
-                    </a>
-                    <a href="{{route('bumm')}}" class="px-8 py-4 bg-yellow-400 text-black rounded font-semibold text-center hover:bg-yellow-300 hover:scale-105 transition-all duration-300 cursor-pointer">
-                    Lihat Semua Produk
-                    </a>
+            <section
+                class="relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex items-center min-h-screen">
+                <!-- Background image dengan opacity -->
+                <div class="absolute top-0 left-0 w-full h-full z-0" data-aos="fade">
+                    <img src="{{ asset('images/cover-bg.jpg') }}" alt="Background"
+                        class="w-full h-full object-cover opacity-20">
                 </div>
-                </div>
-        
-                <!-- Kolom slider gambar -->
-                <div class="lg:w-1/2 mt-8 lg:mt-0 lg:pl-12" data-aos="fade-left" data-aos-delay="800">
-                <div id="hero-slider" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer" style="border: 1px solid #ccc;">
-                    <div id="slider-inner" class="flex transition-transform duration-500 ease-in-out">
-                    <img src="images/makanan-slider-1.jpg" alt="Nasi Goreng Berkah" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
-                    <img src="images/makanan-slider-2.jpg" alt="Tahu Pedas Crispy" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
-                    <img src="images/makanan-slider-3.jpg" alt="Donat Manis Masjid" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+
+                <!-- Container teks dan slider -->
+                <div class="relative z-10 flex flex-col lg:flex-row items-center w-full">
+                    <!-- Kolom teks -->
+                    <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="200">
+                        <h3 class="text-white text-3xl md:text-5xl xl:text-5xl font-bold leading-tight">
+                            Masjid Al-Ikhlas BCC
+                        </h3>
+                        <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
+                            Masjid Al-Ikhlas BCC yang berlokasi di kawasan Buah Batu, Bandung, hadir sebagai pusat
+                            spiritual dan sosial bagi warga sekitar.
+                        </p>
+                        <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
+                            Masjid ini menjadi tempat berkumpul, berbagi ilmu, dan mempererat silaturahmi antar warga
+                            dengan nuansa keislaman yang kuat.
+                        </p>
+                        <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
+                            Dengan fasilitas yang terus dikembangkan dan program keagamaan yang aktif, Masjid Al-Ikhlas
+                            BCC berkomitmen menjadi cahaya kebaikan di tengah masyarakat.
+                        </p>
+
+
+                        <!-- Tombol aksi -->
+                        <div class="mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="600">
+                            <a href="https://wa.me/+62816973677"
+                                class="px-8 py-4 bg-teal-500 text-white rounded font-semibold text-center hover:bg-teal-600 hover:scale-105 transition-all duration-300 cursor-pointer">
+                                Hubungi Kami
+                            </a>
+                            <a href="{{ route('bumm') }}"
+                                class="px-8 py-4 bg-yellow-400 text-black rounded font-semibold text-center hover:bg-yellow-300 hover:scale-105 transition-all duration-300 cursor-pointer">
+                                Lihat Semua Produk
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kolom slider gambar -->
+                    <div class="lg:w-1/2 mt-8 lg:mt-0 lg:pl-12" data-aos="fade-left" data-aos-delay="800">
+                        <div id="hero-slider" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                            style="border: 1px solid #ccc;">
+                            <div id="slider-inner" class="flex transition-transform duration-500 ease-in-out">
+                                <img src="images/makanan-slider-1.jpg" alt="Nasi Goreng Berkah"
+                                    class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                                <img src="images/makanan-slider-2.jpg" alt="Tahu Pedas Crispy"
+                                    class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                                <img src="images/makanan-slider-3.jpg" alt="Donat Manis Masjid"
+                                    class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
-        
-            <!-- Script slider -->
-            <script>
-                const sliderInner = document.getElementById("slider-inner");
-                const slides = sliderInner.querySelectorAll("img");
-                let currentSlide = 0;
-                const totalSlides = slides.length;
-        
-                function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
-                }
-        
-                let slideInterval = setInterval(nextSlide, 3000);
-        
-                let startX = 0;
-                let moveX = 0;
-        
-                sliderInner.addEventListener("touchstart", (e) => {
-                clearInterval(slideInterval);
-                startX = e.touches[0].clientX;
-                });
-        
-                sliderInner.addEventListener("touchmove", (e) => {
-                moveX = e.touches[0].clientX - startX;
-                });
-        
-                sliderInner.addEventListener("touchend", () => {
-                if (moveX > 50) {
-                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                } else if (moveX < -50) {
-                    currentSlide = (currentSlide + 1) % totalSlides;
-                }
-                sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
-                slideInterval = setInterval(nextSlide, 3000);
-                moveX = 0;
-                });
-        
-                document.getElementById("hero-slider").addEventListener("click", () => {
-                clearInterval(slideInterval);
-                nextSlide();
-                slideInterval = setInterval(nextSlide, 3000);
-                });
-            </script>
+
+                <!-- Script slider -->
+                <script>
+                    const sliderInner = document.getElementById("slider-inner");
+                    const slides = sliderInner.querySelectorAll("img");
+                    let currentSlide = 0;
+                    const totalSlides = slides.length;
+
+                    function nextSlide() {
+                        currentSlide = (currentSlide + 1) % totalSlides;
+                        sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    }
+
+                    let slideInterval = setInterval(nextSlide, 3000);
+
+                    let startX = 0;
+                    let moveX = 0;
+
+                    sliderInner.addEventListener("touchstart", (e) => {
+                        clearInterval(slideInterval);
+                        startX = e.touches[0].clientX;
+                    });
+
+                    sliderInner.addEventListener("touchmove", (e) => {
+                        moveX = e.touches[0].clientX - startX;
+                    });
+
+                    sliderInner.addEventListener("touchend", () => {
+                        if (moveX > 50) {
+                            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                        } else if (moveX < -50) {
+                            currentSlide = (currentSlide + 1) % totalSlides;
+                        }
+                        sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+                        slideInterval = setInterval(nextSlide, 3000);
+                        moveX = 0;
+                    });
+
+                    document.getElementById("hero-slider").addEventListener("click", () => {
+                        clearInterval(slideInterval);
+                        nextSlide();
+                        slideInterval = setInterval(nextSlide, 3000);
+                    });
+                </script>
             </section>
         </div>
         <!-- end hero BUMM -->
-  
+
         <!-- start section about & laporan kas -->
         <section id="about" class="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32">
             <!-- Header Section -->
             <div class="mb-12" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 text-center">
-                Tentang Masjid Al-Ikhlas Buana Citra Ciwastra
-            </h2>
+                <h2 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 text-center">
+                    Tentang Masjid Al-Ikhlas Buana Citra Ciwastra
+                </h2>
                 <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-justify leading-relaxed">
-                    Masjid Al-Ikhlas Buana Citra Ciwastra berdiri sejak tahun 2022 di kawasan Buah Batu, Bandung. Masjid ini menjadi tempat ibadah dan kegiatan warga sekitar. Meski sederhana, kami berupaya mengelola keuangan dengan baik dan terbuka untuk mendukung kegiatan keagamaan dan sosial di lingkungan perumahan.
-                </p>              
+                    Masjid Al-Ikhlas Buana Citra Ciwastra berdiri sejak tahun 2022 di kawasan Buah Batu, Bandung. Masjid
+                    ini menjadi tempat ibadah dan kegiatan warga sekitar. Meski sederhana, kami berupaya mengelola
+                    keuangan dengan baik dan terbuka untuk mendukung kegiatan keagamaan dan sosial di lingkungan
+                    perumahan.
+                </p>
             </div>
-        
+
             <!-- Laporan Kas Masjid -->
-            <div class="bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl shadow-xl p-8" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="text-2xl font-bold text-white mb-4 text-center">Laporan Kas Masjid</h3>
-            <!-- Card Kas dengan 1 Baris -->
-            <div class="flex flex-wrap justify-around items-center bg-white rounded-md p-4 shadow-inner">
-                <marquee behavior="" direction="">
-                    <span class="text-blue-600 font-semibold text-lg whitespace-nowrap mx-2">Kas Awal: Rp 10.000.000</span>
-                    <span class="text-blue-600 font-semibold text-lg whitespace-nowrap mx-2">Pemasukan: Rp 5.000.000</span>
-                    <span class="text-blue-600 font-semibold text-lg whitespace-nowrap mx-2">Pengeluaran: Rp 3.000.000</span>
-                    <span class="text-blue-600 font-semibold text-lg whitespace-nowrap mx-2">Kas Akhir: Rp 12.000.000</span>
-                </marquee>
+            <div class="bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl shadow-xl p-8" data-aos="fade-up"
+                data-aos-delay="200">
+                <h3 class="text-2xl font-bold text-white mb-4 text-center">Laporan Kas Masjid</h3>
+
+                <!-- Marquee hanya 1 data terbaru -->
+                <div class="bg-white rounded-md p-4 shadow-inner mb-4">
+                    <marquee behavior="scroll" direction="left">
+                        <span class="text-blue-600 font-semibold text-lg whitespace-nowrap mx-2">
+                            Kas Awal: Rp {{ number_format($kasTerbaru->kas_awal, 0, ',', '.') }}
+                        </span>
+                        <span class="text-blue-600 font-semibold text-lg whitespace-nowrap mx-2">
+                            Pemasukan: Rp {{ number_format($kasTerbaru->pemasukan, 0, ',', '.') }}
+                        </span>
+                        <span class="text-blue-600 font-semibold text-lg whitespace-nowrap mx-2">
+                            Pengeluaran: Rp {{ number_format($kasTerbaru->pengeluaran, 0, ',', '.') }}
+                        </span>
+                        <span class="text-blue-600 font-semibold text-lg whitespace-nowrap mx-2">
+                            Kas Akhir: Rp {{ number_format($kasTerbaru->kas_akhir, 0, ',', '.') }}
+                        </span>
+                    </marquee>
+                </div>
+
+                <!-- 1 Card, klik untuk tampilkan 2 data terbaru -->
+                <div x-data="{ showDetail: false }"
+                    class="flex flex-wrap justify-around items-center bg-white rounded-md p-4 shadow-inner cursor-pointer hover:bg-blue-50 transition-all duration-200"
+                    @click="showDetail = !showDetail">
+
+                    <span class="text-emerald-700 font-bold text-lg">Klik untuk lihat detail laporan terbaru</span>
+
+                    <!-- Box Detail muncul saat diklik -->
+                    <div x-show="showDetail" x-transition
+                        class="mt-4 w-full bg-emerald-50 border border-emerald-300 rounded-lg p-4 text-gray-800">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            @foreach($kasDetail as $kas)
+                            <div class="bg-white rounded-md shadow p-4">
+                                <p class="font-semibold text-emerald-700">📅 Tanggal: {{ \Carbon\Carbon::parse($kas->created_at)->format('d M Y') }}</p>
+                                <p><strong>Kas Awal:</strong> Rp {{ number_format($kas->kas_awal, 0, ',', '.') }}</p>
+                                <p><strong>Pemasukan:</strong> Rp {{ number_format($kas->pemasukan, 0, ',', '.') }}</p>
+                                <p><strong>Pengeluaran:</strong> Rp {{ number_format($kas->pengeluaran, 0, ',', '.') }}</p>
+                                <p><strong>Kas Akhir:</strong> Rp {{ number_format($kas->kas_akhir, 0, ',', '.') }}</p>
+                                <p class="text-sm text-gray-500 mt-2">Diperbarui: {{ $kas->created_at->diffForHumans() }}</p>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            </div>
-        
+
+            <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
             <!-- Deskripsi Tentang Masjid -->
             <div class="mt-16 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="400">
                 <div class="prose prose-blue dark:prose-dark text-gray-800 text-justify leading-relaxed">
                     <p>
-                      Masjid Al-Ikhlas Buana Citra Ciwastra didirikan sebagai wujud komitmen dalam penyediaan ruang ibadah dan pusat
-                      kegiatan keagamaan bagi masyarakat. Kami menyelenggarakan berbagai program dakwah, pendidikan, dan kegiatan sosial
-                      untuk mempererat tali persaudaraan dan membantu sesama.
+                        Masjid Al-Ikhlas Buana Citra Ciwastra didirikan sebagai wujud komitmen dalam penyediaan ruang
+                        ibadah dan pusat
+                        kegiatan keagamaan bagi masyarakat. Kami menyelenggarakan berbagai program dakwah, pendidikan,
+                        dan kegiatan sosial
+                        untuk mempererat tali persaudaraan dan membantu sesama.
                     </p>
                     <p>
-                      Pengelolaan keuangan masjid dilakukan secara transparan dan akuntabel. Laporan kas kami menyajikan informasi real-time 
-                      mengenai kas awal, pemasukan, pengeluaran, hingga kas akhir yang digunakan untuk mendanai program pembangunan fasilitas
-                      dan kegiatan keagamaan.
+                        Pengelolaan keuangan masjid dilakukan secara transparan dan akuntabel. Laporan kas kami
+                        menyajikan informasi real-time
+                        mengenai kas awal, pemasukan, pengeluaran, hingga kas akhir yang digunakan untuk mendanai
+                        program pembangunan fasilitas
+                        dan kegiatan keagamaan.
                     </p>
                     <p>
-                      Mari bergandengan tangan untuk mendukung berbagai program yang telah dan akan kami laksanakan. Kritik, saran, dan masukan Anda 
-                      sangat kami hargai.
+                        Mari bergandengan tangan untuk mendukung berbagai program yang telah dan akan kami laksanakan.
+                        Kritik, saran, dan masukan Anda
+                        sangat kami hargai.
                     </p>
-                  </div>                  
+                </div>
             </div>
         </section>
         <!-- end section about & laporan kas -->
-        
 
-  
-  <!-- JS Quantity Selector & Update Pesan WhatsApp -->
-  <script>
-    // Fungsi untuk meng-handle penambahan jumlah
-    document.querySelectorAll('.quantity-increase').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const qtyElem = this.parentElement.querySelector('.quantity-value');
-        let currentValue = parseInt(qtyElem.getAttribute('data-value')) || 0;
-        currentValue++;
-        qtyElem.setAttribute('data-value', currentValue);
-        qtyElem.textContent = currentValue;
-      });
-    });
-  
-    // Fungsi untuk meng-handle pengurangan jumlah
-    document.querySelectorAll('.quantity-decrease').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const qtyElem = this.parentElement.querySelector('.quantity-value');
-        let currentValue = parseInt(qtyElem.getAttribute('data-value')) || 0;
-        if (currentValue > 0) currentValue--;
-        qtyElem.setAttribute('data-value', currentValue);
-        qtyElem.textContent = currentValue;
-      });
-    });
-  
-    // Update link tombol Beli agar pesan draft WhatsApp mencakup jumlah pembelian
-    document.querySelectorAll('.buy-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        const card = this.closest('.article-card');
-        const qtyElem = card.querySelector('.quantity-value');
-        const quantity = parseInt(qtyElem.getAttribute('data-value')) || 0;
-        const itemName = this.getAttribute('data-item') || '';
-        
-        // Jika jumlah belum dipilih, mencegah pengiriman dan menampilkan alert
-        if (quantity === 0) {
-          e.preventDefault();
-          alert('Silakan pilih jumlah item yang ingin Anda beli!');
-          return;
-        }
-        
-        // Format pesan draft misalnya: "Saya mau beli Roti Kukus & Bakar sebanyak 3 pcs."
-        const message = encodeURIComponent(`Saya mau beli ${itemName} sebanyak ${quantity} pcs.`);
-        const baseUrl = this.href.split('?')[0];
-        this.href = baseUrl + '?text=' + message;
-      });
-    });
-  </script>
-  
-  
-  
-  
-  
-  <!-- Inisialisasi AOS (Animate On Scroll) -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true
-    });
-  </script>
-  
-  
-  <!-- Inisialisasi AOS (Animate On Scroll) -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true
-    });
-  </script>
-  
-  
-  <!-- Style tambahan untuk marquee -->
-  <style>
-    @keyframes marquee {
-      0%   { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    .animate-marquee {
-      display: inline-block;
-      animation: marquee 10s linear infinite;
-    }
-  </style>
-  
-  <!-- Inisialisasi AOS (Animate On Scroll) -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true
-    });
-  </script>
-  
-  
+
+
+        <!-- JS Quantity Selector & Update Pesan WhatsApp -->
+        <script>
+            // Fungsi untuk meng-handle penambahan jumlah
+            document.querySelectorAll('.quantity-increase').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const qtyElem = this.parentElement.querySelector('.quantity-value');
+                    let currentValue = parseInt(qtyElem.getAttribute('data-value')) || 0;
+                    currentValue++;
+                    qtyElem.setAttribute('data-value', currentValue);
+                    qtyElem.textContent = currentValue;
+                });
+            });
+
+            // Fungsi untuk meng-handle pengurangan jumlah
+            document.querySelectorAll('.quantity-decrease').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const qtyElem = this.parentElement.querySelector('.quantity-value');
+                    let currentValue = parseInt(qtyElem.getAttribute('data-value')) || 0;
+                    if (currentValue > 0) currentValue--;
+                    qtyElem.setAttribute('data-value', currentValue);
+                    qtyElem.textContent = currentValue;
+                });
+            });
+
+            // Update link tombol Beli agar pesan draft WhatsApp mencakup jumlah pembelian
+            document.querySelectorAll('.buy-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const card = this.closest('.article-card');
+                    const qtyElem = card.querySelector('.quantity-value');
+                    const quantity = parseInt(qtyElem.getAttribute('data-value')) || 0;
+                    const itemName = this.getAttribute('data-item') || '';
+
+                    // Jika jumlah belum dipilih, mencegah pengiriman dan menampilkan alert
+                    if (quantity === 0) {
+                        e.preventDefault();
+                        alert('Silakan pilih jumlah item yang ingin Anda beli!');
+                        return;
+                    }
+
+                    // Format pesan draft misalnya: "Saya mau beli Roti Kukus & Bakar sebanyak 3 pcs."
+                    const message = encodeURIComponent(`Saya mau beli ${itemName} sebanyak ${quantity} pcs.`);
+                    const baseUrl = this.href.split('?')[0];
+                    this.href = baseUrl + '?text=' + message;
+                });
+            });
+        </script>
+
+
+
+
+
+        <!-- Inisialisasi AOS (Animate On Scroll) -->
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        </script>
+
+
+        <!-- Inisialisasi AOS (Animate On Scroll) -->
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        </script>
+
+
+        <!-- Style tambahan untuk marquee -->
+        <style>
+            @keyframes marquee {
+                0% {
+                    transform: translateX(100%);
+                }
+
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+
+            .animate-marquee {
+                display: inline-block;
+                animation: marquee 10s linear infinite;
+            }
+        </style>
+
+        <!-- Inisialisasi AOS (Animate On Scroll) -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        </script>
+
+
         <!-- Script AOS (Pastikan AOS sudah ter-load di layout, contohnya via CDN) -->
         <script>
             AOS.init({
-            duration: 800,
-            once: true
+                duration: 800,
+                once: true
             });
         </script>
 
         <!-- Script JS untuk interaksi -->
         <script>
-          // Fungsi toggle untuk deskripsi artikel, aktifkan hanya jika teks lebih dari 100 karakter
-          function toggleDescription(btn) {
-            const desc = btn.parentElement.querySelector('.desc');
-            if (desc.textContent.trim().length <= 100) return; // Jika kurang dari 100 karakter, jangan lakukan apa-apa
-            if (desc.classList.contains('line-clamp-3')) {
-              desc.classList.remove('line-clamp-3');
-              btn.textContent = "Tutup";
-            } else {
-              desc.classList.add('line-clamp-3');
-              btn.textContent = "Baca Selengkapnya";
+            // Fungsi toggle untuk deskripsi artikel, aktifkan hanya jika teks lebih dari 100 karakter
+            function toggleDescription(btn) {
+                const desc = btn.parentElement.querySelector('.desc');
+                if (desc.textContent.trim().length <= 100) return; // Jika kurang dari 100 karakter, jangan lakukan apa-apa
+                if (desc.classList.contains('line-clamp-3')) {
+                    desc.classList.remove('line-clamp-3');
+                    btn.textContent = "Tutup";
+                } else {
+                    desc.classList.add('line-clamp-3');
+                    btn.textContent = "Baca Selengkapnya";
+                }
             }
-          }
 
-          // Tampilkan artikel ekstra dan reset form pencarian/filternya
-          document.getElementById("show-more-btn").addEventListener("click", function() {
-            // Tampilkan artikel ekstra
-            const extraArticles = document.querySelectorAll('[id^="extra-article"]');
-            extraArticles.forEach(article => article.classList.remove("hidden"));
+            // Tampilkan artikel ekstra dan reset form pencarian/filternya
+            document.getElementById("show-more-btn").addEventListener("click", function() {
+                // Tampilkan artikel ekstra
+                const extraArticles = document.querySelectorAll('[id^="extra-article"]');
+                extraArticles.forEach(article => article.classList.remove("hidden"));
 
-            // Reset input search dan dropdown filter
-            document.getElementById('search-input').value = "";
-            document.getElementById('filter-kategori').selectedIndex = 0;
-            document.getElementById('filter-penulis').selectedIndex = 0;
+                // Reset input search dan dropdown filter
+                document.getElementById('search-input').value = "";
+                document.getElementById('filter-kategori').selectedIndex = 0;
+                document.getElementById('filter-penulis').selectedIndex = 0;
 
-            // Scroll ke bagian artikel
-            document.getElementById('articles-container').scrollIntoView({ behavior: 'smooth' });
+                // Scroll ke bagian artikel
+                document.getElementById('articles-container').scrollIntoView({
+                    behavior: 'smooth'
+                });
 
-            // Sembunyikan tombol show more
-            this.classList.add("hidden");
-          });
+                // Sembunyikan tombol show more
+                this.classList.add("hidden");
+            });
         </script>
 
         <!-- Script JS untuk Show More dan Toggle Description -->
         <script>
-          // Fungsi untuk toggle deskripsi artikel (buka/tutup)
-          function toggleDescription(btn) {
-            const desc = btn.parentElement.querySelector('.desc');
-            if (desc.classList.contains('line-clamp-3')) {
-              desc.classList.remove('line-clamp-3');
-              btn.textContent = "Tutup";
-            } else {
-              desc.classList.add('line-clamp-3');
-              btn.textContent = "Baca Selengkapnya";
+            // Fungsi untuk toggle deskripsi artikel (buka/tutup)
+            function toggleDescription(btn) {
+                const desc = btn.parentElement.querySelector('.desc');
+                if (desc.classList.contains('line-clamp-3')) {
+                    desc.classList.remove('line-clamp-3');
+                    btn.textContent = "Tutup";
+                } else {
+                    desc.classList.add('line-clamp-3');
+                    btn.textContent = "Baca Selengkapnya";
+                }
             }
-          }
 
-          // Tampilkan artikel ekstra saat tombol "Lihat Semua Artikel" ditekan
-          const showMoreBtn = document.getElementById("show-more-btn");
-          showMoreBtn.addEventListener("click", function() {
-            const extraArticles = document.querySelectorAll('[id^="extra-article"]');
-            extraArticles.forEach(article => article.classList.remove("hidden"));
-            showMoreBtn.classList.add("hidden");
-          });
+            // Tampilkan artikel ekstra saat tombol "Lihat Semua Artikel" ditekan
+            const showMoreBtn = document.getElementById("show-more-btn");
+            showMoreBtn.addEventListener("click", function() {
+                const extraArticles = document.querySelectorAll('[id^="extra-article"]');
+                extraArticles.forEach(article => article.classList.remove("hidden"));
+                showMoreBtn.classList.add("hidden");
+            });
         </script>
 
 

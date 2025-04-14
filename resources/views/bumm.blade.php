@@ -179,51 +179,57 @@
                             </li>
                             <!-- EVENT MASJID BUTTON -->
                             <li class="relative md:ml-4">
-                                <button onclick="toggleEventMenu()" class="py-2 inline-block md:text-white md:px-2 font-semibold focus:outline-none">
-                                Event Masjid
+                                <button onclick="toggleEventMenu()"
+                                    class="py-2 inline-block md:text-white md:px-2 font-semibold focus:outline-none">
+                                    Event Masjid
                                 </button>
 
                                 <!-- Pop-up Menu dengan transisi -->
-                                <ul id="eventMenu" class="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-56 z-50 transition-all duration-300 opacity-0 scale-95 pointer-events-none">
+                                <ul id="eventMenu"
+                                    class="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-56 z-50 transition-all duration-300 opacity-0 scale-95 pointer-events-none">
                                     <li>
-                                        <a href="{{ route('ikatan') }}" class="block px-4 py-2 hover:bg-gray-100">Ikatan Remaja Masjid</a>
+                                        <a href="{{ route('ikatan') }}" class="block px-4 py-2 hover:bg-gray-100">Ikatan
+                                            Remaja Masjid</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('pesantren') }}" class="block px-4 py-2 hover:bg-gray-100">Pesantren Kilat Ramadhan</a>
+                                        <a href="{{ route('pesantren') }}"
+                                            class="block px-4 py-2 hover:bg-gray-100">Pesantren Kilat Ramadhan</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('qurban') }}" class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
+                                        <a href="{{ route('qurban') }}"
+                                            class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri Item</a>
+                                        <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri
+                                            Item</a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
 
                             <!-- SCRIPT -->
                             <script>
                                 function toggleEventMenu() {
-                                const menu = document.getElementById('eventMenu');
-                                const isHidden = menu.classList.contains('pointer-events-none');
+                                    const menu = document.getElementById('eventMenu');
+                                    const isHidden = menu.classList.contains('pointer-events-none');
 
-                                if (isHidden) {
-                                    menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-                                    menu.classList.add('opacity-100', 'scale-100');
-                                } else {
-                                    menu.classList.remove('opacity-100', 'scale-100');
-                                    menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                                }
+                                    if (isHidden) {
+                                        menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                                        menu.classList.add('opacity-100', 'scale-100');
+                                    } else {
+                                        menu.classList.remove('opacity-100', 'scale-100');
+                                        menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                                    }
                                 }
 
                                 // Optional: Klik di luar menu untuk menutupnya
                                 window.addEventListener('click', function(e) {
-                                const menu = document.getElementById('eventMenu');
-                                const button = document.querySelector('button[onclick="toggleEventMenu()"]');
-                                if (!menu.contains(e.target) && !button.contains(e.target)) {
-                                    menu.classList.remove('opacity-100', 'scale-100');
-                                    menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                                }
+                                    const menu = document.getElementById('eventMenu');
+                                    const button = document.querySelector('button[onclick="toggleEventMenu()"]');
+                                    if (!menu.contains(e.target) && !button.contains(e.target)) {
+                                        menu.classList.remove('opacity-100', 'scale-100');
+                                        menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                                    }
                                 });
                             </script>
                             <li class="md:ml-4 lg:block md:hidden">
@@ -243,7 +249,7 @@
                                            hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
                                     Log In As Admin
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -251,95 +257,119 @@
         <!-- end header -->
         <!-- start hero BUMM -->
         <div class="bg-gray-100" id="heroHeader">
-        <section class="relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex items-center min-h-screen">
-            <!-- Background image dengan opacity -->
-            <div class="absolute top-0 left-0 w-full h-full z-0" data-aos="fade">
-            <img src="{{ asset('images/cover-bg.jpg') }}" alt="Background" class="w-full h-full object-cover opacity-20">
-            </div>
-
-            <!-- Container teks dan slider -->
-            <div class="relative z-10 flex flex-col lg:flex-row items-center w-full">
-            <!-- Kolom teks -->
-            <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="200">
-                <h3 class="text-white text-3xl md:text-5xl xl:text-5xl font-bold leading-tight">
-                Badan Usaha Milik Masjid
-                </h3>
-                <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
-                Dukung usaha masjid melalui pembelian produk makanan favorit masyarakat!
-                </p>
-                <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
-                Dari makanan ringan hingga berat, semua dibuat dengan semangat kebersamaan dan keberkahan.
-                </p>
-
-                <!-- Tombol aksi -->
-                <div class="mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="600">
-                <a href="https://wa.me/+62816973677" class="px-8 py-4 bg-teal-500 text-white rounded font-semibold text-center hover:bg-teal-600 hover:scale-105 transition-all duration-300 cursor-pointer">
-                    Hubungi Kami
-                </a>
-                <a href="{{route('bumm')}}" class="px-8 py-4 bg-yellow-400 text-black rounded font-semibold text-center hover:bg-yellow-300 hover:scale-105 transition-all duration-300 cursor-pointer">
-                    Lihat Semua Produk
-                </a>
+            <section
+                class="relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex items-center min-h-screen">
+                <!-- Background image dengan opacity -->
+                <div class="absolute top-0 left-0 w-full h-full z-0" data-aos="fade">
+                    <img src="{{ asset('images/cover-bg.jpg') }}" alt="Background"
+                        class="w-full h-full object-cover opacity-20">
                 </div>
-            </div>
 
-            <!-- Kolom slider gambar -->
-            <div class="lg:w-1/2 mt-8 lg:mt-0 lg:pl-12" data-aos="fade-left" data-aos-delay="800">
-                <div id="hero-slider" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer" style="border: 1px solid #ccc;">
-                <div id="slider-inner" class="flex transition-transform duration-500 ease-in-out">
-                    <img src="images/makanan-slider-1.jpg" alt="Nasi Goreng Berkah" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
-                    <img src="images/makanan-slider-2.jpg" alt="Tahu Pedas Crispy" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
-                    <img src="images/makanan-slider-3.jpg" alt="Donat Manis Masjid" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                <!-- Container teks dan slider -->
+                <div class="relative z-10 flex flex-col lg:flex-row items-center w-full">
+                    <!-- Kolom teks -->
+                    <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="200">
+                        <h3 class="text-white text-3xl md:text-5xl xl:text-5xl font-bold leading-tight">
+                            Badan Usaha Milik Masjid
+                        </h3>
+                        <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
+                            Dukung usaha masjid melalui pembelian produk makanan favorit masyarakat!
+                        </p>
+                        <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
+                            Dari makanan ringan hingga berat, semua dibuat dengan semangat kebersamaan dan keberkahan.
+                        </p>
+
+                        <!-- Tombol aksi -->
+                        <div class="mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="600">
+                            <a href="https://wa.me/+62816973677"
+                                class="px-8 py-4 bg-teal-500 text-white rounded font-semibold text-center hover:bg-teal-600 hover:scale-105 transition-all duration-300 cursor-pointer">
+                                Hubungi Kami
+                            </a>
+                            <a href="{{ route('bumm') }}#koprotin"
+                                class="px-8 py-4 bg-yellow-400 text-black rounded font-semibold text-center hover:bg-yellow-300 hover:scale-105 transition-all duration-300 cursor-pointer">
+                                Lihat Semua Produk
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kolom slider gambar -->
+                    <div class="lg:w-1/2 mt-8 lg:mt-0 lg:pl-12" data-aos="fade-left" data-aos-delay="800">
+                        <div id="hero-slider" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                            style="border: 1px solid #ccc;">
+                            <div id="slider-inner" class="flex transition-transform duration-500 ease-in-out">
+                                <img src="images/makanan-slider-1.jpg" alt="Nasi Goreng Berkah"
+                                    class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                                <img src="images/makanan-slider-2.jpg" alt="Tahu Pedas Crispy"
+                                    class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                                <img src="images/makanan-slider-3.jpg" alt="Donat Manis Masjid"
+                                    class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </div>
-            </div>
-            </div>
 
-            <!-- Script slider -->
-            <script>
-            const sliderInner = document.getElementById("slider-inner");
-            const slides = sliderInner.querySelectorAll("img");
-            let currentSlide = 0;
-            const totalSlides = slides.length;
+                <!-- Script slider -->
+                <script>
+                    const sliderInner = document.getElementById("slider-inner");
+                    const slides = sliderInner.querySelectorAll("img");
+                    let currentSlide = 0;
+                    const totalSlides = slides.length;
 
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
-            }
+                    function nextSlide() {
+                        currentSlide = (currentSlide + 1) % totalSlides;
+                        sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    }
 
-            let slideInterval = setInterval(nextSlide, 3000);
+                    let slideInterval = setInterval(nextSlide, 3000);
 
-            let startX = 0;
-            let moveX = 0;
+                    let startX = 0;
+                    let moveX = 0;
 
-            sliderInner.addEventListener("touchstart", (e) => {
-                clearInterval(slideInterval);
-                startX = e.touches[0].clientX;
-            });
+                    sliderInner.addEventListener("touchstart", (e) => {
+                        clearInterval(slideInterval);
+                        startX = e.touches[0].clientX;
+                    });
 
-            sliderInner.addEventListener("touchmove", (e) => {
-                moveX = e.touches[0].clientX - startX;
-            });
+                    sliderInner.addEventListener("touchmove", (e) => {
+                        moveX = e.touches[0].clientX - startX;
+                    });
 
-            sliderInner.addEventListener("touchend", () => {
-                if (moveX > 50) {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                } else if (moveX < -50) {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                }
-                sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
-                slideInterval = setInterval(nextSlide, 3000);
-                moveX = 0;
-            });
+                    sliderInner.addEventListener("touchend", () => {
+                        if (moveX > 50) {
+                            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                        } else if (moveX < -50) {
+                            currentSlide = (currentSlide + 1) % totalSlides;
+                        }
+                        sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+                        slideInterval = setInterval(nextSlide, 3000);
+                        moveX = 0;
+                    });
 
-            document.getElementById("hero-slider").addEventListener("click", () => {
-                clearInterval(slideInterval);
-                nextSlide();
-                slideInterval = setInterval(nextSlide, 3000);
-            });
-            </script>
-        </section>
+                    document.getElementById("hero-slider").addEventListener("click", () => {
+                        clearInterval(slideInterval);
+                        nextSlide();
+                        slideInterval = setInterval(nextSlide, 3000);
+                    });
+                </script>
+            </section>
         </div>
         <!-- end hero BUMM -->
+
+        @php
+            // Ambil parameter pencarian
+            $search = request('search') ?? '';
+            // Query produk: jika ada pencarian, filter berdasarkan nama, kategori, atau deskripsi
+            $query = \App\Models\Product::query();
+            if ($search) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('name', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('description', 'LIKE', "%{$search}%");
+                });
+            }
+            // Ambil produk terbaru dengan paginate (misal 8 per halaman)
+            $products = $query->latest()->paginate(8)->withQueryString();
+        @endphp
 
         <!-- start section Koprotin - Warung Kopi & Cemilan -->
         <section id="koprotin" class="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-24">
@@ -358,118 +388,116 @@
                 </p>
             </div>
 
-            <!-- Grid Menu -->
-            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4" data-aos="fade-up" data-aos-delay="200">
-                <!-- Card Menu Kopi -->
-                <div
-                    class="article-card bg-gray-50 border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center transition-transform duration-300 hover:scale-105">
-                    <div class="w-24 h-24 mb-4">
-                        <img src="https://source.unsplash.com/collection/190727/100x100?coffee" alt="Kopi"
-                            class="w-full h-full object-cover rounded-full">
-                    </div>
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Kopi</h4>
-                    <p class="text-gray-600 mb-4">Rp 5.000</p>
-                    <!-- Quantity Selector -->
-                    <div class="flex items-center space-x-2 mb-4">
-                        <button type="button"
-                            class="quantity-decrease bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">–</button>
-                        <span class="quantity-value font-semibold text-gray-800" data-value="0">0</span>
-                        <button type="button"
-                            class="quantity-increase bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">+</button>
-                    </div>
-                    <!-- Tombol Beli dengan link dinamis ke WhatsApp -->
-                    <a href="https://wa.me/6285210724904" target="_blank"
-                        class="buy-btn px-4 py-2 bg-blue-500 text-white rounded-md font-semibold transition hover:bg-blue-600"
-                        data-item="Kopi">
-                        Beli
-                    </a>
-                </div>
-
-                <!-- Card Menu Roti Kukus & Bakar -->
-                <div
-                    class="article-card bg-gray-50 border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center transition-transform duration-300 hover:scale-105">
-                    <div class="w-24 h-24 mb-4">
-                        <img src="https://source.unsplash.com/collection/190727/100x100?bread"
-                            alt="Roti Kukus & Bakar" class="w-full h-full object-cover rounded-full">
-                    </div>
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Roti Kukus & Bakar</h4>
-                    <p class="text-gray-600 mb-4">Rp 6.000</p>
-                    <!-- Quantity Selector -->
-                    <div class="flex items-center space-x-2 mb-4">
-                        <button type="button"
-                            class="quantity-decrease bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">–</button>
-                        <span class="quantity-value font-semibold text-gray-800" data-value="0">0</span>
-                        <button type="button"
-                            class="quantity-increase bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">+</button>
-                    </div>
-                    <a href="https://wa.me/6285210724904" target="_blank"
-                        class="buy-btn px-4 py-2 bg-blue-500 text-white rounded-md font-semibold transition hover:bg-blue-600"
-                        data-item="Roti Kukus & Bakar">
-                        Beli
-                    </a>
-                </div>
-
-                <!-- Card Menu Indomie -->
-                <div
-                    class="article-card bg-gray-50 border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center transition-transform duration-300 hover:scale-105">
-                    <div class="w-24 h-24 mb-4">
-                        <img src="https://source.unsplash.com/collection/190727/100x100?noodles" alt="Indomie"
-                            class="w-full h-full object-cover rounded-full">
-                    </div>
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Indomie</h4>
-                    <p class="text-gray-600 mb-4">Rp 10.000</p>
-                    <!-- Quantity Selector -->
-                    <div class="flex items-center space-x-2 mb-4">
-                        <button type="button"
-                            class="quantity-decrease bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">–</button>
-                        <span class="quantity-value font-semibold text-gray-800" data-value="0">0</span>
-                        <button type="button"
-                            class="quantity-increase bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">+</button>
-                    </div>
-                    <a href="https://wa.me/6285210724904" target="_blank"
-                        class="buy-btn px-4 py-2 bg-blue-500 text-white rounded-md font-semibold transition hover:bg-blue-600"
-                        data-item="Indomie">
-                        Beli
-                    </a>
-                </div>
-
-                <!-- Card Menu Baru: Piscok -->
-                <div
-                    class="article-card bg-gray-50 border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center transition-transform duration-300 hover:scale-105">
-                    <div class="w-24 h-24 mb-4">
-                        <img src="https://source.unsplash.com/collection/190727/100x100?chocolate" alt="Piscok"
-                            class="w-full h-full object-cover rounded-full">
-                    </div>
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Piscok</h4>
-                    <p class="text-gray-600 mb-4">Rp 8.000</p>
-                    <!-- Quantity Selector -->
-                    <div class="flex items-center space-x-2 mb-4">
-                        <button type="button"
-                            class="quantity-decrease bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">–</button>
-                        <span class="quantity-value font-semibold text-gray-800" data-value="0">0</span>
-                        <button type="button"
-                            class="quantity-increase bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">+</button>
-                    </div>
-                    <a href="https://wa.me/6285210724904" target="_blank"
-                        class="buy-btn px-4 py-2 bg-blue-500 text-white rounded-md font-semibold transition hover:bg-blue-600"
-                        data-item="Piscok">
-                        Beli
-                    </a>
-                </div>
+            <!-- Search Form (cari produk) -->
+            <div class="mb-12" data-aos="fade-up" data-aos-delay="100">
+                <form action="{{ url()->current() }}#koprotin" method="GET" class="flex items-center justify-center gap-4">
+                    <input type="text" name="search"
+                        placeholder="Cari produk, misal: Kopi, Roti, Indomie, Piscok..."
+                        value="{{ request('search') }}"
+                        class="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-200" />
+                    <button type="submit"
+                        class="px-6 py-2 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-md transition duration-300">
+                        Cari
+                    </button>
+                </form>
             </div>
 
-            <!-- Optional Footer Text -->
-            <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="400">
-                <p class="text-gray-500 text-sm">
-                    Koprotin – Menu sederhana untuk warga dan keluarga di lingkungan Masjid Al-Ikhlas.
-                </p>
+            <!-- Grid Produk -->
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4" data-aos="fade-up" data-aos-delay="200">
+                @forelse($products as $product)
+                    <!-- Card Produk -->
+                    <div class="article-card bg-gray-50 border border-gray-200 rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
+                        <!-- Gambar Thumbnail -->
+                        <div class="w-full h-48 overflow-hidden cursor-pointer" onclick="openProductModal({{ $product->id }})">
+                            @if ($product->image)
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
+                                    class="w-full h-full object-cover">
+                            @else
+                                <img src="https://source.unsplash.com/collection/190727/400x300?coffee"
+                                    alt="{{ $product->name }}" class="w-full h-full object-cover">
+                            @endif
+                        </div>
+                        <!-- Konten -->
+                        <div class="p-4 flex flex-col items-center text-center">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">{{ $product->name }}</h4>
+                            <p class="text-gray-600 mb-4 text-sm">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+                            <!-- Quantity Selector -->
+                            <div class="flex items-center space-x-2 mb-4">
+                                <button type="button"
+                                    class="quantity-decrease bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">–</button>
+                                <span class="quantity-value font-semibold text-gray-800" data-value="0">0</span>
+                                <button type="button"
+                                    class="quantity-increase bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-300">+</button>
+                            </div>
+                            <!-- Tombol Beli -->
+                            <a href="https://wa.me/6285210724904" target="_blank"
+                                class="buy-btn px-4 py-2 bg-blue-500 text-white rounded-md font-semibold transition hover:bg-blue-600"
+                                data-item="{{ $product->name }}">
+                                Beli
+                            </a>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-span-full text-center text-gray-500">
+                        <p>Tidak ada produk yang ditemukan.</p>
+                    </div>
+                @endforelse
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-12" data-aos="fade-up" data-aos-delay="400">
+                {{ $products->links() }}
             </div>
         </section>
         <!-- end section Koprotin -->
 
-        <!-- JS Quantity Selector & Update Pesan WhatsApp -->
+        <!-- Product Detail Modals -->
+        @foreach ($products as $product)
+            <div id="product-modal-{{ $product->id }}"
+                class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm">
+                <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-6 relative">
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <!-- Gambar Produk -->
+                        <div class="sm:w-1/2 w-full">
+                            @if ($product->image)
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
+                                    class="w-full h-64 sm:h-72 object-cover rounded-xl shadow-md">
+                            @else
+                                <img src="https://source.unsplash.com/collection/190727/400x300?coffee"
+                                    alt="{{ $product->name }}"
+                                    class="w-full h-64 sm:h-72 object-cover rounded-xl shadow-md">
+                            @endif
+                        </div>
+
+                        <!-- Detail Produk -->
+                        <div class="sm:w-1/2 w-full flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">{{ $product->name }}</h3>
+                                <p class="text-gray-500 mt-2">Kategori: <span
+                                        class="font-medium text-gray-700">{{ $product->category }}</span></p>
+                                <p class="text-gray-500 mt-1">Harga:
+                                    <span class="text-lg font-semibold text-green-600">Rp
+                                        {{ number_format($product->price, 0, ',', '.') }}</span>
+                                </p>
+                                <p class="text-gray-600 mt-4 text-sm leading-relaxed">{{ $product->description }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Cari Kembali -->
+                    <div class="mt-8 text-center">
+                        <button onclick="closeProductModal({{ $product->id }})"
+                            class="inline-block px-6 py-2 bg-teal-500 hover:bg-teal-600 text-white text-sm font-semibold rounded-lg shadow-md transition">
+                            Cari Kembali
+                        </button>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
+        <!-- JS Quantity Selector, Buy Button, & Modal Handling -->
         <script>
-            // Fungsi untuk meng-handle penambahan jumlah
+            // Fungsi untuk menambah jumlah
             document.querySelectorAll('.quantity-increase').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const qtyElem = this.parentElement.querySelector('.quantity-value');
@@ -480,7 +508,7 @@
                 });
             });
 
-            // Fungsi untuk meng-handle pengurangan jumlah
+            // Fungsi untuk mengurangi jumlah
             document.querySelectorAll('.quantity-decrease').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const qtyElem = this.parentElement.querySelector('.quantity-value');
@@ -491,7 +519,7 @@
                 });
             });
 
-            // Update link tombol Beli agar pesan draft WhatsApp mencakup jumlah pembelian
+            // Update tombol Beli agar menyisipkan jumlah ke pesan WhatsApp tanpa URL gambar
             document.querySelectorAll('.buy-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     const card = this.closest('.article-card');
@@ -499,19 +527,33 @@
                     const quantity = parseInt(qtyElem.getAttribute('data-value')) || 0;
                     const itemName = this.getAttribute('data-item') || '';
 
-                    // Jika jumlah belum dipilih, mencegah pengiriman dan menampilkan alert
+                    // Cegah pengiriman jika jumlahnya 0
                     if (quantity === 0) {
                         e.preventDefault();
                         alert('Silakan pilih jumlah item yang ingin Anda beli!');
                         return;
                     }
 
-                    // Format pesan draft misalnya: "Saya mau beli Roti Kukus & Bakar sebanyak 3 pcs."
                     const message = encodeURIComponent(`Saya mau beli ${itemName} sebanyak ${quantity} pcs.`);
                     const baseUrl = this.href.split('?')[0];
-                    this.href = baseUrl + '?text=' + message;
+                    this.href = `${baseUrl}?text=${message}`;
                 });
             });
+
+            // Modal handling: membuka modal detail produk
+            function openProductModal(id) {
+                const modal = document.getElementById('product-modal-' + id);
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeProductModal(id) {
+                const modal = document.getElementById('product-modal-' + id);
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
         </script>
 
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

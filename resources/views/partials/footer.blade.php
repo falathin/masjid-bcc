@@ -1,5 +1,11 @@
-<footer class="bg-gray-900 text-white px-6 sm:px-12 py-12 overflow-x-hidden" data-aos="fade-up"
-    data-aos-anchor-placement="top-bottom">
+@php
+    // Ambil jadwal terbaru berdasarkan waktu dibuat
+    use App\Models\JadwalJumat;
+    $jadwal = JadwalJumat::latest('created_at')->first();
+@endphp
+
+<!-- Footer Section (Contoh: resources/views/partials/footer.blade.php) -->
+<footer class="bg-gray-900 text-white px-6 sm:px-12 py-12 overflow-x-hidden" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         <!-- Profil Masjid -->
         <div data-aos="fade-right" data-aos-delay="100" data-aos-anchor-placement="top-bottom">
@@ -10,7 +16,7 @@
             </p>
 
             <form class="flex items-center mt-6" action="#" method="POST">
-                <!-- Pastikan untuk menambahkan @csrf ketika digunakan di Laravel -->
+                @csrf
                 <div class="w-full">
                     <label class="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2"
                         for="email-subscribe">
@@ -140,7 +146,7 @@
                     class="flex items-center text-gray-400 hover:text-teal-400 transition-colors duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 fill-current" viewBox="0 0 24 24">
                         <path
-                            d="M20.947,8.305c-0.011-0.757-0.151-1.508-0.419-2.216c-0.469-1.209-1.424-2.165-2.633-2.633 c-0.699-0.263-1.438-0.404-2.186-0.42C14.747,2.993,14.442,2.981,12,2.981s-2.755,0-3.71,0.055 c-0.747,0.016-1.486,0.157-2.185,0.42C4.896,3.924,3.94,4.88,3.472,6.089C3.209,6.788,3.067,7.527,3.053,8.274 c-0.043,0.963-0.056,1.268-0.056,3.71s0,2.754,0.056,3.71c0.015,0.748,0.156,1.486,0.419,2.187 c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45c0.963,0.043,1.268,0.056,3.71,0.056s2.755,0,3.71-0.056 c0.747-0.015,1.486-0.156,2.186-0.419c1.209-0.469,2.164-1.425,2.633-2.633c0.263-0.7,0.404-1.438,0.419-2.187 c0.043-0.962,0.056-1.267,0.056-3.71C21.003,9.572,21.003,9.262,20.947,8.305z M11.994,16.602c-2.554,0-4.623-2.069-4.623-4.623 s2.069-4.623,4.623-4.623c2.552,0,4.623,2.069,4.623,4.623S14.546,16.602,11.994,16.602z M16.801,8.263 c-0.597,0-1.078-0.482-1.078-1.078s0.481-1.078,1.078-1.078c0.595,0,1.077,0.482,1.077,1.078S17.396,8.263,16.801,8.263z" />
+                            d="M20.947,8.305c-0.011-0.757-0.151-1.508-0.419-2.216c-0.469-1.209-1.424-2.165-2.633-2.633 c-0.699-0.263-1.438-0.404-2.186-0.42C14.747,2.993,14.442,2.981,12,2.981s-2.755,0-3.71,0.055 c-0.747,0.016-1.486,0.157-2.185,0.42C4.896,3.924,3.94,4.88,3.472,6.089C3.209,6.788,3.067,7.527,3.053,8.274 c-0.043,0.963-0.056,1.268-0.056,3.71C2.997,9.572,2.997,9.262,3.053,8.305z M11.994,16.602c-2.554,0-4.623-2.069-4.623-4.623 s2.069-4.623,4.623-4.623c2.552,0,4.623,2.069,4.623,4.623S14.546,16.602,11.994,16.602z M16.801,8.263 c-0.597,0-1.078-0.482-1.078-1.078s0.481-1.078,1.078-1.078c0.595,0,1.077,0.482,1.077,1.078S17.396,8.263,16.801,8.263z" />
                     </svg>
                     @alikhlasbcc
                 </a>
@@ -155,37 +161,42 @@
 </footer>
 
 <!-- Jadwal Jumat Modal (Popup) -->
-<div id="jumatModal"
-    class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm">
-    <div
-        class="bg-gradient-to-br from-white via-green-50 to-white rounded-2xl shadow-2xl max-w-2xl w-full p-8 relative border border-green-200">
+<div id="jumatModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm">
+    <div class="bg-gradient-to-br from-white via-green-50 to-white rounded-2xl shadow-2xl max-w-2xl w-full p-8 relative border border-green-200">
         <!-- Tombol close -->
-        <button onclick="closeJumatModal()"
-            class="absolute top-3 right-4 text-gray-600 hover:text-red-500 text-2xl focus:outline-none transition duration-200 ease-in-out">
+        <button onclick="closeJumatModal()" class="absolute top-3 right-4 text-gray-600 hover:text-red-500 text-2xl focus:outline-none transition duration-200 ease-in-out">
             &times;
         </button>
         <!-- Judul Modal -->
         <h2 class="text-3xl font-semibold text-center text-green-800 mb-4 tracking-wide">
             Jadwal Jumat Minggu Ini
         </h2>
-            <!-- Konten Jadwal (dengan tanggal Jumat) -->
+        <!-- Konten Jadwal -->
+        @if (isset($jadwal))
             <div class="mt-6 bg-white rounded-2xl shadow-md p-6 border border-gray-200">
                 <h2 class="text-xl font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2m0 0a4 4 0 004 4h2a4 4 0 004-4zm0 0v-2a4 4 0 014-4h2a4 4 0 014 4v2m0 0a4 4 0 01-4 4h-2a4 4 0 01-4-4z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 17v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2m0 0a4 4 0 004 4h2a4 4 0 004-4zm0 0v-2a4 4 0 014-4h2a4 4 0 014 4v2m0 0a4 4 0 01-4 4h-2a4 4 0 01-4-4z" />
                     </svg>
                     Jadwal Imam & Muadzin Jumat
                 </h2>
-                <p class="text-sm text-gray-500 mb-4">Jumat, 11 April 2025</p> <!-- Ganti otomatis kalau mau -->
+                <p class="text-sm text-gray-500 mb-4">{{ \Carbon\Carbon::parse($jadwal->tanggal)->format('l, d F Y') }}</p>
                 <ul class="space-y-3 text-gray-700 text-base">
                     <li class="flex items-center gap-3">
-                        <span class="text-green-600 font-medium">🕌 Imam:</span> Ust. H. Ahmad Fauzi
+                        <span class="text-green-600 font-medium">🕌 Imam:</span> {{ $jadwal->imam }}
                     </li>
                     <li class="flex items-center gap-3">
-                        <span class="text-blue-600 font-medium">📢 Muadzin & Bilal:</span> M. Ridwan Nurhidayat
+                        <span class="text-blue-600 font-medium">📢 Muadzin & Bilal:</span> {{ $jadwal->muadzin }}
                     </li>
                 </ul>
             </div>
+        @else
+            <div class="mt-6 text-center text-gray-500">
+                <p>Tidak ada data jadwal terbaru.</p>
+            </div>
+        @endif
         <div class="mt-6 text-center">
             <button onclick="closeJumatModal()"
                 class="px-6 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition duration-300 shadow">

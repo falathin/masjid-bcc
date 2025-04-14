@@ -8,10 +8,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="stylesheet" href="build/tailwind.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <title>Al-Ikhlas | Buana Citra Ciwastra</title>
-
     <style>
         #menu-toggle:checked+#menu {
             display: block;
@@ -174,28 +174,35 @@
                                     href="{{ route('home') }}">Beranda</a>
                             </li>
                             <li class="md:ml-4">
-                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold" href="{{route('about')}}">Tentang
+                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                                    href="{{ route('about') }}">Tentang
                                     Kami</a>
                             </li>
                             <!-- EVENT MASJID BUTTON -->
                             <li class="relative md:ml-4">
-                                <button onclick="toggleEventMenu()" class="py-2 inline-block md:text-white md:px-2 font-semibold focus:outline-none">
-                                Event Masjid
+                                <button onclick="toggleEventMenu()"
+                                    class="py-2 inline-block md:text-white md:px-2 font-semibold focus:outline-none">
+                                    Event Masjid
                                 </button>
 
                                 <!-- Pop-up Menu dengan transisi -->
-                                <ul id="eventMenu" class="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-56 z-50 transition-all duration-300 opacity-0 scale-95 pointer-events-none">
+                                <ul id="eventMenu"
+                                    class="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-56 z-50 transition-all duration-300 opacity-0 scale-95 pointer-events-none">
                                     <li>
-                                        <a href="{{ route('ikatan') }}" class="block px-4 py-2 hover:bg-gray-100">Ikatan Remaja Masjid</a>
+                                        <a href="{{ route('ikatan') }}" class="block px-4 py-2 hover:bg-gray-100">Ikatan
+                                            Remaja Masjid</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('pesantren') }}" class="block px-4 py-2 hover:bg-gray-100">Pesantren Kilat Ramadhan</a>
+                                        <a href="{{ route('pesantren') }}"
+                                            class="block px-4 py-2 hover:bg-gray-100">Pesantren Kilat Ramadhan</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('qurban') }}" class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
+                                        <a href="{{ route('qurban') }}"
+                                            class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri Item</a>
+                                        <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri
+                                            Item</a>
                                     </li>
                                 </ul>
                             </li>
@@ -203,26 +210,26 @@
                             <!-- SCRIPT -->
                             <script>
                                 function toggleEventMenu() {
-                                const menu = document.getElementById('eventMenu');
-                                const isHidden = menu.classList.contains('pointer-events-none');
+                                    const menu = document.getElementById('eventMenu');
+                                    const isHidden = menu.classList.contains('pointer-events-none');
 
-                                if (isHidden) {
-                                    menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-                                    menu.classList.add('opacity-100', 'scale-100');
-                                } else {
-                                    menu.classList.remove('opacity-100', 'scale-100');
-                                    menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                                }
+                                    if (isHidden) {
+                                        menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                                        menu.classList.add('opacity-100', 'scale-100');
+                                    } else {
+                                        menu.classList.remove('opacity-100', 'scale-100');
+                                        menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                                    }
                                 }
 
                                 // Optional: Klik di luar menu untuk menutupnya
                                 window.addEventListener('click', function(e) {
-                                const menu = document.getElementById('eventMenu');
-                                const button = document.querySelector('button[onclick="toggleEventMenu()"]');
-                                if (!menu.contains(e.target) && !button.contains(e.target)) {
-                                    menu.classList.remove('opacity-100', 'scale-100');
-                                    menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                                }
+                                    const menu = document.getElementById('eventMenu');
+                                    const button = document.querySelector('button[onclick="toggleEventMenu()"]');
+                                    if (!menu.contains(e.target) && !button.contains(e.target)) {
+                                        menu.classList.remove('opacity-100', 'scale-100');
+                                        menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                                    }
                                 });
                             </script>
                             <li class="md:ml-4 lg:block md:hidden">
@@ -243,7 +250,7 @@
                                            hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
                                     Log In As Admin
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -264,10 +271,12 @@
                     <!-- Kolom teks -->
                     <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="200">
                         <h3 class="text-white text-3xl md:text-5xl xl:text-5xl font-bold leading-tight">
-                                Hubungi Kami
+                            Hubungi Kami
                         </h3>
                         <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
-                            Kami terbuka terhadap <span class="font-bold">saran, kritik, maupun pertanyaan</span> dari jamaah dan masyarakat sekitar. Silakan kirimkan pesan Anda melalui formulir yang tersedia. Kami akan berusaha memberikan tanggapan terbaik secepatnya.
+                            Kami terbuka terhadap <span class="font-bold">saran, kritik, maupun pertanyaan</span> dari
+                            jamaah dan masyarakat sekitar. Silakan kirimkan pesan Anda melalui formulir yang tersedia.
+                            Kami akan berusaha memberikan tanggapan terbaik secepatnya.
                         </p>
 
                         <!-- Tahun dan tombol -->
@@ -382,94 +391,81 @@
         <section id="contact" class="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32">
             <!-- Header Section -->
             <div class="mb-12" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 text-center">
-                Sampaikan Kritik, Saran, & Keluhan
-            </h2>
-            <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-center">
-                Kami selalu siap mendengarkan masukan Anda untuk meningkatkan pelayanan dan kualitas.
-                Silakan kirimkan email, nama (opsional), judul pertanyaan, dan pesan Anda di bawah ini.
-            </p>
+                <h2 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 text-center">
+                    Sampaikan Kritik, Saran, & Keluhan
+                </h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-center">
+                    Kami selalu siap mendengarkan masukan Anda untuk meningkatkan pelayanan dan kualitas.
+                    Silakan kirimkan email, nama (opsional), judul pertanyaan, dan pesan Anda di bawah ini.
+                </p>
             </div>
-        
+
             <!-- Form Card -->
-            <div class="max-w-2xl mx-auto bg-gray-50 border border-gray-200 rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="200">
-                <form action="#" method="POST" enctype="multipart/form-data" class="space-y-6">
+            <div class="max-w-2xl mx-auto bg-gray-50 border border-gray-200 rounded-xl shadow-lg p-8"
+                data-aos="fade-up" data-aos-delay="200">
+                <form action="{{ route('contact.store') }}" method="POST" enctype="multipart/form-data"
+                    class="space-y-6">
                     @csrf
-                
+
                     <!-- Email -->
                     <div>
-                        <label for="email" class="block text-lg font-medium text-gray-700 flex items-center gap-2 hover:text-blue-500 transition-all">
+                        <label for="email"
+                            class="block text-lg font-medium text-gray-700 flex items-center gap-2 hover:text-blue-500 transition-all">
                             <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
                             </svg>
                             Email Anda
                         </label>
                         <input type="email" name="email" id="email" placeholder="email@contoh.com" required
                             class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none" />
                     </div>
-                
+
                     <!-- Nama -->
                     <div>
-                        <label for="name" class="block text-lg font-medium text-gray-700 flex items-center gap-2 hover:text-blue-500 transition-all">
+                        <label for="name"
+                            class="block text-lg font-medium text-gray-700 flex items-center gap-2 hover:text-blue-500 transition-all">
                             <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M5.121 17.804A7.5 7.5 0 0112 15.5c1.66 0 3.182.538 4.404 1.444M12 11a4 4 0 100-8 4 4 0 000 8z"></path>
+                                    d="M5.121 17.804A7.5 7.5 0 0112 15.5c1.66 0 3.182.538 4.404 1.444M12 11a4 4 0 100-8 4 4 0 000 8z">
+                                </path>
                             </svg>
                             Nama (Opsional)
                         </label>
                         <input type="text" name="name" id="name" placeholder="Nama Anda"
                             class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none" />
                     </div>
-                
+
                     <!-- Judul -->
                     <div>
-                        <label for="subject" class="block text-lg font-medium text-gray-700 flex items-center gap-2 hover:text-blue-500 transition-all">
+                        <label for="subject"
+                            class="block text-lg font-medium text-gray-700 flex items-center gap-2 hover:text-blue-500 transition-all">
                             <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16">
+                                </path>
                             </svg>
                             Judul
                         </label>
-                        <input type="text" name="subject" id="subject" placeholder="Judul Pertanyaan atau Kritik/Saran" required
+                        <input type="text" name="subject" id="subject"
+                            placeholder="Judul Pertanyaan atau Kritik/Saran" required
                             class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none" />
                     </div>
-                
+
                     <!-- Pesan -->
                     <div>
-                        <label for="message" class="block text-lg font-medium text-gray-700 flex items-center gap-2 hover:text-blue-500 transition-all">
-                            Pertanyaan / Kritik / Saran ?
+                        <label for="message"
+                            class="block text-lg font-medium text-gray-700 flex items-center gap-2 hover:text-blue-500 transition-all">
+                            Pertanyaan / Kritik / Saran?
                         </label>
                         <textarea name="message" id="message" rows="5"
-                            placeholder="Tulis pertanyaan, kritik atau saran Anda di sini..." required
+                            placeholder="Tulis pertanyaan, kritik, atau saran Anda di sini..." required
                             class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"></textarea>
                     </div>
-                
-                    <!-- Upload Gambar -->
-                    <div>
-                        <label for="image-upload" class="block text-lg font-medium text-gray-700 mb-2 flex items-center gap-2 hover:text-blue-500 transition-all">
-                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 16l5-5a2 2 0 012.828 0L15 15m4-10h2a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2"></path>
-                            </svg>
-                            Unggah Gambar (Opsional)
-                        </label>
-                
-                        <div id="drop-zone"
-                            class="relative border-2 border-dotted border-blue-400 rounded-md p-6 flex items-center justify-center text-gray-500 text-sm text-center transition-all hover:border-blue-600 hover:bg-blue-50 cursor-pointer">
-                            <input type="file" name="image" id="image-upload" accept="image/*"
-                                class="absolute inset-0 opacity-0 w-full h-full cursor-pointer" />
-                            <div id="preview-text">Seret dan letakkan gambar di sini, atau klik untuk memilih</div>
-                            <img id="preview-image" class="max-h-60 object-contain hidden" />
-                        </div>
-                
-                        <p class="text-sm text-gray-500 mt-2">Misalnya: Foto masjid, kondisi bangunan, dll.</p>
-                    </div>
-                
+
                     <!-- Tombol Submit -->
                     <div class="text-center">
                         <button type="submit"
@@ -478,123 +474,109 @@
                         </button>
                     </div>
                 </form>
-                
-                <!-- Script Preview Gambar -->
-                <script>
-                    const dropZone = document.getElementById('drop-zone');
-                    const input = document.getElementById('image-upload');
-                    const previewImage = document.getElementById('preview-image');
-                    const previewText = document.getElementById('preview-text');
-                
-                    input.addEventListener('change', function () {
-                        if (this.files && this.files[0]) {
-                            const reader = new FileReader();
-                            reader.onload = function (e) {
-                                previewImage.src = e.target.result;
-                                previewImage.classList.remove('hidden');
-                                previewText.classList.add('hidden');
-                            }
-                            reader.readAsDataURL(this.files[0]);
-                        }
-                    });
-                
-                    ['dragenter', 'dragover'].forEach(event => {
-                        dropZone.addEventListener(event, e => {
-                            e.preventDefault();
-                            dropZone.classList.add('border-blue-600', 'bg-blue-50');
-                        });
-                    });
-                
-                    ['dragleave', 'drop'].forEach(event => {
-                        dropZone.addEventListener(event, e => {
-                            e.preventDefault();
-                            dropZone.classList.remove('border-blue-600', 'bg-blue-50');
-                        });
-                    });
-                
-                    dropZone.addEventListener('drop', e => {
-                        e.preventDefault();
-                        const file = e.dataTransfer.files[0];
-                        if (file && file.type.startsWith('image/')) {
-                            input.files = e.dataTransfer.files;
-                            const reader = new FileReader();
-                            reader.onload = function (e) {
-                                previewImage.src = e.target.result;
-                                previewImage.classList.remove('hidden');
-                                previewText.classList.add('hidden');
-                            }
-                            reader.readAsDataURL(file);
-                        }
-                    });
-                </script>
-                
             </div>
         </section>
         <!-- end section contact form -->
-  
+
+        <!-- SweetAlert2 Popup Success Script -->
+        @if (session('success'))
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sukses!',
+                        html: "{{ session('success') }}",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                    });
+                });
+            </script>
+        @endif
+
+
+        <!-- SweetAlert2 Popup Success Script -->
+        @if (session('success'))
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sukses!',
+                        html: "{{ session('success') }}",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                    });
+                });
+            </script>
+        @endif
+
+
         <!-- Script AOS (Pastikan AOS sudah ter-load di layout, contohnya via CDN) -->
         <script>
             AOS.init({
-            duration: 800,
-            once: true
+                duration: 800,
+                once: true
             });
         </script>
 
         <!-- Script JS untuk interaksi -->
         <script>
-          // Fungsi toggle untuk deskripsi artikel, aktifkan hanya jika teks lebih dari 100 karakter
-          function toggleDescription(btn) {
-            const desc = btn.parentElement.querySelector('.desc');
-            if (desc.textContent.trim().length <= 100) return; // Jika kurang dari 100 karakter, jangan lakukan apa-apa
-            if (desc.classList.contains('line-clamp-3')) {
-              desc.classList.remove('line-clamp-3');
-              btn.textContent = "Tutup";
-            } else {
-              desc.classList.add('line-clamp-3');
-              btn.textContent = "Baca Selengkapnya";
+            // Fungsi toggle untuk deskripsi artikel, aktifkan hanya jika teks lebih dari 100 karakter
+            function toggleDescription(btn) {
+                const desc = btn.parentElement.querySelector('.desc');
+                if (desc.textContent.trim().length <= 100) return; // Jika kurang dari 100 karakter, jangan lakukan apa-apa
+                if (desc.classList.contains('line-clamp-3')) {
+                    desc.classList.remove('line-clamp-3');
+                    btn.textContent = "Tutup";
+                } else {
+                    desc.classList.add('line-clamp-3');
+                    btn.textContent = "Baca Selengkapnya";
+                }
             }
-          }
 
-          // Tampilkan artikel ekstra dan reset form pencarian/filternya
-          document.getElementById("show-more-btn").addEventListener("click", function() {
-            // Tampilkan artikel ekstra
-            const extraArticles = document.querySelectorAll('[id^="extra-article"]');
-            extraArticles.forEach(article => article.classList.remove("hidden"));
+            // Tampilkan artikel ekstra dan reset form pencarian/filternya
+            document.getElementById("show-more-btn").addEventListener("click", function() {
+                // Tampilkan artikel ekstra
+                const extraArticles = document.querySelectorAll('[id^="extra-article"]');
+                extraArticles.forEach(article => article.classList.remove("hidden"));
 
-            // Reset input search dan dropdown filter
-            document.getElementById('search-input').value = "";
-            document.getElementById('filter-kategori').selectedIndex = 0;
-            document.getElementById('filter-penulis').selectedIndex = 0;
+                // Reset input search dan dropdown filter
+                document.getElementById('search-input').value = "";
+                document.getElementById('filter-kategori').selectedIndex = 0;
+                document.getElementById('filter-penulis').selectedIndex = 0;
 
-            // Scroll ke bagian artikel
-            document.getElementById('articles-container').scrollIntoView({ behavior: 'smooth' });
+                // Scroll ke bagian artikel
+                document.getElementById('articles-container').scrollIntoView({
+                    behavior: 'smooth'
+                });
 
-            // Sembunyikan tombol show more
-            this.classList.add("hidden");
-          });
+                // Sembunyikan tombol show more
+                this.classList.add("hidden");
+            });
         </script>
 
         <!-- Script JS untuk Show More dan Toggle Description -->
         <script>
-          // Fungsi untuk toggle deskripsi artikel (buka/tutup)
-          function toggleDescription(btn) {
-            const desc = btn.parentElement.querySelector('.desc');
-            if (desc.classList.contains('line-clamp-3')) {
-              desc.classList.remove('line-clamp-3');
-              btn.textContent = "Tutup";
-            } else {
-              desc.classList.add('line-clamp-3');
-              btn.textContent = "Baca Selengkapnya";
+            // Fungsi untuk toggle deskripsi artikel (buka/tutup)
+            function toggleDescription(btn) {
+                const desc = btn.parentElement.querySelector('.desc');
+                if (desc.classList.contains('line-clamp-3')) {
+                    desc.classList.remove('line-clamp-3');
+                    btn.textContent = "Tutup";
+                } else {
+                    desc.classList.add('line-clamp-3');
+                    btn.textContent = "Baca Selengkapnya";
+                }
             }
-          }
 
-          // Tampilkan artikel ekstra saat tombol "Lihat Semua Artikel" ditekan
-          const showMoreBtn = document.getElementById("show-more-btn");
-          showMoreBtn.addEventListener("click", function() {
-            const extraArticles = document.querySelectorAll('[id^="extra-article"]');
-            extraArticles.forEach(article => article.classList.remove("hidden"));
-            showMoreBtn.classList.add("hidden");
-          });
+            // Tampilkan artikel ekstra saat tombol "Lihat Semua Artikel" ditekan
+            const showMoreBtn = document.getElementById("show-more-btn");
+            showMoreBtn.addEventListener("click", function() {
+                const extraArticles = document.querySelectorAll('[id^="extra-article"]');
+                extraArticles.forEach(article => article.classList.remove("hidden"));
+                showMoreBtn.classList.add("hidden");
+            });
         </script>
 
 
@@ -618,7 +600,6 @@
         @include('partials.footer')
         <!-- end footer -->
     </main>
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131505823-4"></script>
     <script>
@@ -638,7 +619,6 @@
             easing: 'ease-in-out'
         });
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    
 </body>
-
 </html>
