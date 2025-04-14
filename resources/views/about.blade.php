@@ -433,7 +433,7 @@
 
             <!-- Deskripsi Tentang Masjid -->
             <div class="mt-16 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="400">
-                <div class="prose prose-blue dark:prose-dark text-gray-800 text-justify leading-relaxed">
+                <div class="prose prose-blue text-gray-800 text-justify leading-relaxed">
                     <p>
                         Masjid Al-Ikhlas Buana Citra Ciwastra didirikan sebagai wujud komitmen dalam penyediaan ruang
                         ibadah dan pusat

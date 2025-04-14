@@ -17,7 +17,7 @@
             </div>
             <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
 
-                <form action="{{ route('admin.home') }}" method="POST">
+                <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="max-w-md mx-auto">
                         <div>
@@ -26,7 +26,7 @@
                         <div class="divide-y divide-gray-200">
                             <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                 <div class="relative">
-                                    <input autocomplete="off" id="email" name="email" type="text"
+                                    <input autocomplete="off" id="email" name="email" type="email"
                                         class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-cyan-600"
                                         placeholder="Email address" required />
                                     <label for="email"
@@ -45,27 +45,10 @@
                                         Submit
                                     </button>
                                 </div>
-                            </div>
+                                <a href="{{ route('password.request') }}">Lupa password</a>
                         </div>
                     </div>
                 </form>
-
-                <div class="w-full flex justify-center mt-6">
-                    <button
-                        class="flex items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-                        <svg class="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="-0.5 0 48 48" version="1.1">
-                            <g fill="none" fill-rule="evenodd">
-                                <path d="M9.827 24c0-1.524.253-2.986.705-4.356L2.623 13.604C1.082 16.734.214 20.26.214 24c0 3.737.868 7.262 2.407 10.39l7.905-6.051A13.126 13.126 0 019.827 24z" fill="#FBBC05"/>
-                                <path d="M23.714 10.133c3.311 0 6.302 1.173 8.652 3.093l6.836-6.827C35.036 2.773 29.695.533 23.714.533 14.427.533 6.445 5.844 2.623 13.604l7.909 6.04c1.823-5.532 7.018-9.51 13.182-9.51z" fill="#EB4335"/>
-                                <path d="M23.714 37.867c-6.165 0-11.36-3.978-13.182-9.51L2.623 34.395C6.445 42.156 14.427 47.467 23.714 47.467c5.732 0 11.204-2.035 15.311-5.849l-7.507-5.804a13.08 13.08 0 01-7.804 2.053z" fill="#34A853"/>
-                                <path d="M46.145 24c0-1.387-.213-2.88-.534-4.267H23.714v9.067h12.604c-.63 3.091-2.346 5.467-4.8 7.014l7.507 5.804C43.34 37.614 46.145 31.649 46.145 24z" fill="#4285F4"/>
-                            </g>
-                        </svg>
-                        <span>Continue with Google</span>
-                    </button>
-                </div>
-
             </div>
         </div>
     </div>
@@ -73,3 +56,51 @@
 
 
 </html>
+
+{{-- <x-guest-layout>
+    <!-- Session Status -->
+    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+
+        <!-- Email Address -->
+        <div>
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Password -->
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
+
+            <x-text-input id="password" class="block mt-1 w-full"
+                            type="password"
+                            name="password"
+                            required autocomplete="current-password" />
+
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
+
+        <!-- Remember Me -->
+        <div class="block mt-4">
+            <label for="remember_me" class="inline-flex items-center">
+                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+            </label>
+        </div>
+
+        <div class="flex items-center justify-end mt-4">
+            @if (Route::has('password.request'))
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                    {{ __('Forgot your password?') }}
+                </a>
+            @endif
+
+            <x-primary-button class="ms-3">
+                {{ __('Log in') }}
+            </x-primary-button>
+        </div>
+    </form>
+</x-guest-layout> --}}

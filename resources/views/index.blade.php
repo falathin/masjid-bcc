@@ -9,6 +9,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="stylesheet" href="build/tailwind.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="cyan" viewBox="0 0 24 24"%3E%3Cpath d="M12 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6-7h-1V7a5 5 0 0 0-10 0v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2zm-8-3a3 3 0 0 1 6 0v3H10V7zm8 14H6v-9h12v9z"/%3E%3C/svg%3E'>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <title>Al-Ikhlas | Buana Citra Ciwastra</title>
 
@@ -255,15 +257,30 @@
                                     href="{{ route('contact') }}">Kontak Kami</a>
                             </li>
 
-                            <!-- LOGIN ADMIN -->
-                            <li class="md:ml-6 mt-3 md:mt-0">
-                                <a href="{{ route('login') }}"
-                                    class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
+                            @auth
+                                <!-- LOGIN ADMIN -->
+                                <li class="md:ml-6 mt-3 md:mt-0">
+                                    <a href="{{ route('admin.home') }}"
+                                        class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
                             transition-all duration-300 ease-in-out 
                             hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
-                                    Log In As Admin
-                                </a>
-                            </li>
+                                        Masuk halaman dashboard admin
+                                    </a>
+                                </li>
+                            @endauth
+                            @guest
+                                <!-- LOGIN ADMIN -->
+                                <li class="md:ml-6 mt-3 md:mt-0">
+                                    <a href="{{ route('login') }}"
+                                        class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
+                                transition-all duration-300 ease-in-out 
+                                hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
+                                        Log In As Admin
+                                    </a>
+                                </li>
+                            @endguest
+
+
                         </ul>
                     </nav>
                 </div>
