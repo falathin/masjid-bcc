@@ -490,7 +490,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 13v4" />
                         </svg>
                         <h4 class="text-xl font-bold mt-4 text-gray-800">Subuh</h4>
-                        <p class="mt-1 text-gray-600">04:30</p>
+                        <p class="mt-1 text-gray-600">{{ $jadwal['jadwal']['subuh'] ?? '00:00' }}</p>
                     </div>
                 </div>
 
@@ -509,7 +509,7 @@
                                 d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
                         </svg>
                         <h4 class="text-xl font-bold mt-4 text-gray-800">Dzuhur</h4>
-                        <p class="mt-1 text-gray-600">12:00</p>
+                        <p class="mt-1 text-gray-600">{{ $jadwal['jadwal']['dzuhur'] ?? '00:00' }}</p>
                     </div>
                 </div>
 
@@ -525,7 +525,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2" />
                         </svg>
                         <h4 class="text-xl font-bold mt-4 text-gray-800">Ashar</h4>
-                        <p class="mt-1 text-gray-600">15:30</p>
+                        <p class="mt-1 text-gray-600">{{ $jadwal['jadwal']['ashar'] ?? '00:00' }}</p>
                     </div>
                 </div>
 
@@ -545,7 +545,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 13v4" />
                         </svg>
                         <h4 class="text-xl font-bold mt-4 text-gray-800">Maghrib</h4>
-                        <p class="mt-1 text-gray-600">18:15</p>
+                        <p class="mt-1 text-gray-600">{{ $jadwal['jadwal']['maghrib'] ?? '00:00' }}</p>
                     </div>
                 </div>
 
@@ -560,7 +560,7 @@
                                 d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
                         </svg>
                         <h4 class="text-xl font-bold mt-4 text-gray-800">Isya</h4>
-                        <p class="mt-1 text-gray-600">19:30</p>
+                        <p class="mt-1 text-gray-600">{{ $jadwal['jadwal']['isya'] ?? '00:00' }}</p>
                     </div>
                 </div>
             </div>

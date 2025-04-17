@@ -10,10 +10,14 @@ use App\Http\Controllers\{
     ProductController
 };
 
+use App\Services\ApiJadwalSholat;
+
 // start Untuk route non admin dan gak login dibawah
 
 Route::get('/', function () {
-    return view('index');
+    $jadwal = ApiJadwalSholat::getJadwal(1201, date('Y-m-d'));
+    $jadwal = $jadwal['data'] ?? [];
+    return view('index', compact('jadwal'));
 })->name('home');
 
 Route::get('/berita', function () {

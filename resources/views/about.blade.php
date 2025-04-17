@@ -363,6 +363,11 @@
         </div>
         <!-- end hero BUMM -->
 
+        @php
+            use App\Models\JadwalJumat;
+            $jadwal = JadwalJumat::latest('created_at')->first();
+        @endphp
+
         <!-- start section about & laporan kas -->
         <section id="about" class="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32">
             <!-- Header Section -->
@@ -372,18 +377,15 @@
                 </h2>
                 <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-justify leading-relaxed">
                     Masjid Al-Ikhlas Buana Citra Ciwastra berdiri sejak tahun 2022 di kawasan Buah Batu, Bandung. Masjid
-                    ini menjadi tempat ibadah dan kegiatan warga sekitar. Meski sederhana, kami berupaya mengelola
-                    keuangan dengan baik dan terbuka untuk mendukung kegiatan keagamaan dan sosial di lingkungan
-                    perumahan.
+                    ini menjadi tempat ibadah dan kegiatan warga sekitar. Meski sederhana, kami berupaya mengelola keuangan
+                    dengan baik dan terbuka untuk mendukung kegiatan keagamaan dan sosial di lingkungan perumahan.
                 </p>
             </div>
 
             <!-- Laporan Kas Masjid -->
-            <div class="bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl shadow-xl p-8" data-aos="fade-up"
-                data-aos-delay="200">
+            <div class="relative bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl shadow-xl p-8" data-aos="fade-up" data-aos-delay="200">
                 <h3 class="text-2xl font-bold text-white mb-4 text-center">Laporan Kas Masjid</h3>
-
-                <!-- Marquee hanya 1 data terbaru -->
+                <!-- Marquee Data Kas Terbaru -->
                 <div class="bg-white rounded-md p-4 shadow-inner mb-4">
                     <marquee behavior="scroll" direction="left">
                         <span class="text-blue-600 font-semibold text-lg whitespace-nowrap mx-2">
@@ -400,64 +402,155 @@
                         </span>
                     </marquee>
                 </div>
-
-                <!-- 1 Card, klik untuk tampilkan 2 data terbaru -->
+                <!-- Card Detail Laporan Kas -->
                 <div x-data="{ showDetail: false }"
                     class="flex flex-wrap justify-around items-center bg-white rounded-md p-4 shadow-inner cursor-pointer hover:bg-blue-50 transition-all duration-200"
                     @click="showDetail = !showDetail">
-
                     <span class="text-emerald-700 font-bold text-lg">Klik untuk lihat detail laporan terbaru</span>
-
-                    <!-- Box Detail muncul saat diklik -->
                     <div x-show="showDetail" x-transition
                         class="mt-4 w-full bg-emerald-50 border border-emerald-300 rounded-lg p-4 text-gray-800">
-                        
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            @foreach($kasDetail as $kas)
-                            <div class="bg-white rounded-md shadow p-4">
-                                <p class="font-semibold text-emerald-700">📅 Tanggal: {{ \Carbon\Carbon::parse($kas->created_at)->format('d M Y') }}</p>
-                                <p><strong>Kas Awal:</strong> Rp {{ number_format($kas->kas_awal, 0, ',', '.') }}</p>
-                                <p><strong>Pemasukan:</strong> Rp {{ number_format($kas->pemasukan, 0, ',', '.') }}</p>
-                                <p><strong>Pengeluaran:</strong> Rp {{ number_format($kas->pengeluaran, 0, ',', '.') }}</p>
-                                <p><strong>Kas Akhir:</strong> Rp {{ number_format($kas->kas_akhir, 0, ',', '.') }}</p>
-                                <p class="text-sm text-gray-500 mt-2">Diperbarui: {{ $kas->created_at->diffForHumans() }}</p>
-                            </div>
+                            @foreach ($kasDetail as $kas)
+                                <div class="bg-white rounded-md shadow p-4">
+                                    <p class="font-semibold text-emerald-700">📅 Tanggal: {{ \Carbon\Carbon::parse($kas->created_at)->format('d M Y') }}</p>
+                                    <p><strong>Kas Awal:</strong> Rp {{ number_format($kas->kas_awal, 0, ',', '.') }}</p>
+                                    <p><strong>Pemasukan:</strong> Rp {{ number_format($kas->pemasukan, 0, ',', '.') }}</p>
+                                    <p><strong>Pengeluaran:</strong> Rp {{ number_format($kas->pengeluaran, 0, ',', '.') }}</p>
+                                    <p><strong>Kas Akhir:</strong> Rp {{ number_format($kas->kas_akhir, 0, ',', '.') }}</p>
+                                    <p class="text-sm text-gray-500 mt-2">Diperbarui: {{ $kas->created_at->diffForHumans() }}</p>
+                                </div>
                             @endforeach
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+            <!-- Jadwal Imam & Muadzin Jumat - Kas Card Style dengan Pop-up Keutamaan -->
+            <div class="mt-12 px-4 sm:px-0" data-aos="fade-up" data-aos-delay="400">
+                @if ($jadwal)
+                    <div onclick="showInfo()"
+                        class="relative bg-gradient-to-r from-green-300 via-emerald-400 to-teal-500 text-white rounded-2xl shadow-2xl border border-green-600 overflow-hidden p-6 transition-transform duration-300 hover:scale-[1.02] hover:shadow-emerald-500/30 cursor-pointer">
+                        <!-- Efek garis kilau animasi -->
+                        <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden rounded-xl">
+                            <div class="absolute w-1/3 h-full bg-white opacity-10 transform rotate-45 animate-[shine_3s_infinite]"></div>
+                        </div>
+                        <!-- Judul -->
+                        <h2 class="text-2xl font-extrabold text-white mb-2 tracking-widest text-center">
+                            🕌 JADWAL JUMAT MINGGU INI
+                        </h2>
+                        <!-- Tanggal -->
+                        <p class="text-center text-sm text-white/80 mb-6">
+                            Tanggal: {{ \Carbon\Carbon::parse($jadwal->tanggal)->translatedFormat('l, d F Y') }}
+                        </p>
+                        <!-- Grid Imam & Muadzin -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-medium text-center">
+                            <!-- Card Imam -->
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/30 shadow-inner hover:bg-white/20 transition-all duration-300 group">
+                                <div class="flex flex-col items-center">
+                                    <!-- SVG Icon Imam -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mb-2 text-white group-hover:text-yellow-300 transition" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 12c2.761 0 5-2.239 5-5S14.761 2 12 2 7 4.239 7 7s2.239 5 5 5zm0 2c-3.315 0-10 1.673-10 5v3h20v-3c0-3.327-6.685-5-10-5z"/>
+                                    </svg>
+                                    <p class="text-sm text-white/70 mb-1">IMAM</p>
+                                    <p class="text-xl font-bold tracking-wide">{{ $jadwal->imam }}</p>
+                                </div>
+                            </div>
+                            <!-- Card Muadzin & Bilal -->
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/30 shadow-inner hover:bg-white/20 transition-all duration-300 group">
+                                <div class="flex flex-col items-center">
+                                    <!-- SVG Icon Muadzin -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mb-2 text-white group-hover:text-yellow-300 transition" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.486 2 2 6.486 2 12a9.962 9.962 0 005.014 8.67l-.406-3.058L6 17l-2 1 1.49-4.47L4 12.001 5.49 10.47 4 6l2 1 1.493-1.612.407-3.058A9.962 9.962 0 0012 2zm0 2c4.411 0 8 3.589 8 8 0 3.232-1.918 6.008-4.688 7.328l.406 3.057L18 22l2-1-1.49 4.47L20 23.999l-1.49-1.529L20 18l-2-1-1.493 1.612-.407 3.058A9.962 9.962 0 0112 22c-4.411 0-8-3.589-8-8s3.589-8 8-8z"/>
+                                    </svg>
+                                    <p class="text-sm text-white/70 mb-1">MUADZIN & BILAL</p>
+                                    <p class="text-xl font-bold tracking-wide">{{ $jadwal->muadzin }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="text-center text-gray-500">
+                        <p>Tidak ada jadwal imam dan muadzin untuk minggu ini.</p>
+                    </div>
+                @endif
+            </div>
+
+            <!-- Animasi Shine -->
+            <style>
+                @keyframes shine {
+                    0% {
+                        transform: translateX(-100%) rotate(45deg);
+                    }
+                    100% {
+                        transform: translateX(200%) rotate(45deg);
+                    }
+                }
+                .animate-[shine_3s_infinite] {
+                    animation: shine 3s infinite;
+                }
+            </style>
+
+            <!-- Script Pop-up menggunakan SweetAlert2 -->
+            <script>
+                function showInfo() {
+                    Swal.fire({
+                        title: "Keutamaan Azan & Imam",
+                        html: `
+                            <div class="text-left space-y-4">
+                                <p class="text-lg font-semibold">الْمُؤَذِّنُوْنَ أَطْوَلُ النَّاسِ أَعْنَاقًا</p>
+                                <p class="text-sm text-gray-700">
+                                    “Para muadzin adalah orang yang paling panjang lehernya pada hari kiamat.”<br>
+                                    <small class="text-gray-500">(HR. Muslim no. 850)</small>
+                                </p>
+                                <p class="text-sm text-gray-700">
+                                    عن أبي هريرة – رضي الله عنه – أن رسول الله صلى الله عليه وسلم قال:<br>
+                                    <em>إِذَا نُودِيَ لِلصَّلاَةِ أَدْبَرَ الشَّيْطَانُ لَهُ ضُرَاطٌ حَتَّى لاَ يَسْمَعَ التَّأْذِينَ ...</em><br>
+                                    <small class="text-gray-500">(HR. Bukhari no. 609)</small>
+                                </p>
+                            </div>
+                        `,
+                        confirmButtonText: "Tutup",
+                        customClass: {
+                            title: 'text-2xl font-bold',
+                            html: 'text-base'
+                        }
+                    });
+                }
+            </script>
 
             <!-- Deskripsi Tentang Masjid -->
-            <div class="mt-16 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+            <div class="mt-16 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="500">
                 <div class="prose prose-blue text-gray-800 text-justify leading-relaxed">
                     <p>
-                        Masjid Al-Ikhlas Buana Citra Ciwastra didirikan sebagai wujud komitmen dalam penyediaan ruang
-                        ibadah dan pusat
-                        kegiatan keagamaan bagi masyarakat. Kami menyelenggarakan berbagai program dakwah, pendidikan,
-                        dan kegiatan sosial
-                        untuk mempererat tali persaudaraan dan membantu sesama.
+                        Masjid Al-Ikhlas Buana Citra Ciwastra didirikan sebagai wujud komitmen dalam penyediaan ruang ibadah dan pusat
+                        kegiatan keagamaan bagi masyarakat. Kami menyelenggarakan berbagai program dakwah, pendidikan, dan
+                        kegiatan sosial untuk mempererat tali persaudaraan dan membantu sesama.
                     </p>
                     <p>
-                        Pengelolaan keuangan masjid dilakukan secara transparan dan akuntabel. Laporan kas kami
-                        menyajikan informasi real-time
-                        mengenai kas awal, pemasukan, pengeluaran, hingga kas akhir yang digunakan untuk mendanai
-                        program pembangunan fasilitas
-                        dan kegiatan keagamaan.
+                        Pengelolaan keuangan masjid dilakukan secara transparan dan akuntabel. Laporan kas kami menyajikan
+                        informasi real-time mengenai kas awal, pemasukan, pengeluaran, hingga kas akhir yang digunakan untuk
+                        mendanai program pembangunan fasilitas dan kegiatan keagamaan.
                     </p>
                     <p>
                         Mari bergandengan tangan untuk mendukung berbagai program yang telah dan akan kami laksanakan.
-                        Kritik, saran, dan masukan Anda
-                        sangat kami hargai.
+                        Kritik, saran, dan masukan Anda sangat kami hargai.
                     </p>
+                </div>
+            </div>
+
+            <!-- Banner Struktur Organisasi Masjid -->
+            <div class="mt-12" data-aos="fade-up" data-aos-delay="600">
+                <div class="relative">
+                    <img src="{{ asset('images/struktur-organisasi.jpg') }}" alt="Struktur Organisasi Masjid" class="w-full h-64 sm:h-80 object-cover rounded-xl shadow-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-xl">
+                        <h2 class="text-3xl font-bold text-white tracking-wide">Struktur Organisasi Masjid</h2>
+                    </div>
                 </div>
             </div>
         </section>
         <!-- end section about & laporan kas -->
 
+        <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
 
         <!-- JS Quantity Selector & Update Pesan WhatsApp -->
