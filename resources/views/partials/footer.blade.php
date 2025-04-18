@@ -193,12 +193,16 @@
                     <p class="text-sm text-gray-500 mb-4">
                         {{ \Carbon\Carbon::parse($jadwal->tanggal)->format('l, d F Y') }}</p>
                     <ul class="space-y-3 text-gray-700 text-base">
-                        <li class="flex items-center gap-3">
-                            <span class="text-green-600 font-medium">🕌 Imam:</span> {{ $jadwal->imam }}
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-blue-600 font-medium">📢 Muadzin & Bilal:</span> {{ $jadwal->muadzin }}
-                        </li>
+                    <li class="flex items-center gap-3">
+    <span class="text-green-600 font-medium">🕌 Imam:</span> {{ $jadwal->imam }}
+</li>
+<li class="flex items-center gap-3">
+    <span class="text-blue-600 font-medium">📢 Muadzin & Bilal:</span> {{ $jadwal->muadzin }}
+</li>
+<li class="flex items-center gap-3">
+    <span class="text-purple-600 font-medium">🎤 Khotib:</span> {{ $jadwal->khotib }}
+</li>
+
                     </ul>
                 </div>
             @else

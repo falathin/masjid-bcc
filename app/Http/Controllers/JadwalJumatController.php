@@ -19,6 +19,10 @@ class JadwalJumatController extends Controller
             $query->where('muadzin', 'like', '%' . $request->muadzin . '%');
         }
 
+        if ($request->filled('khotib')) {
+            $query->where('khotib', 'like', '%' . $request->khotib . '%');
+        }
+
         if ($request->filled('tanggal')) {
             $query->whereDate('tanggal', $request->tanggal);
         }
@@ -27,26 +31,23 @@ class JadwalJumatController extends Controller
         return view('admin.jadwal.index', compact('jadwal'));
     }
 
-    // Tampilkan form buat jadwal Jumat baru
     public function create()
     {
         return view('admin.jadwal.create');
     }
 
-    // Simpan data jadwal baru
     public function store(Request $request)
     {
         $data = $request->validate([
             'tanggal' => 'required|date',
             'imam' => 'required|string',
             'muadzin' => 'required|string',
+            'khotib' => 'required|string',
         ]);
 
         JadwalJumat::create($data);
         return redirect()->route('admin.jadwal.index')->with('success', 'Jadwal Jumat berhasil ditambahkan.');
     }
-
-    // app/Http/Controllers/JadwalJumatController.php
 
     public function edit(JadwalJumat $jadwal)
     {
@@ -59,6 +60,7 @@ class JadwalJumatController extends Controller
             'tanggal' => 'required|date',
             'imam' => 'required|string',
             'muadzin' => 'required|string',
+            'khotib' => 'required|string',
         ]);
 
         $jadwal->update($data);

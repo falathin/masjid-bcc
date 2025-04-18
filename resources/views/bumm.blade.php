@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="build/tailwind.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
@@ -136,8 +137,8 @@
                         <li class="ml-6">
                             <a href="https://www.instagram.com/alikhlasbcc?igsh=eTNrMW9iYTN1NTVr" target="_blank"
                                 title="Instagram">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" class="fill-current">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    class="fill-current">
                                     <path
                                         d="M20.947,8.305c-0.011-0.757-0.151-1.508-0.419-2.216c-0.469-1.209-1.424-2.165-2.633-2.633 c-0.699-0.263-1.438-0.404-2.186-0.42C14.747,2.993,14.442,2.981,12,2.981s-2.755,0-3.71,0.055 c-0.747,0.016-1.486,0.157-2.185,0.42C4.896,3.924,3.94,4.88,3.472,6.089C3.209,6.788,3.067,7.527,3.053,8.274 c-0.043,0.963-0.056,1.268-0.056,3.71s0,2.754,0.056,3.71c0.015,0.748,0.156,1.486,0.419,2.187 c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45c0.963,0.043,1.268,0.056,3.71,0.056s2.755,0,3.71-0.056 c0.747-0.015,1.486-0.156,2.186-0.419c1.209-0.469,2.164-1.425,2.633-2.633c0.263-0.7,0.404-1.438,0.419-2.187 c0.043-0.962,0.056-1.267,0.056-3.71C21.003,9.572,21.003,9.262,20.947,8.305z M11.994,16.602c-2.554,0-4.623-2.069-4.623-4.623 s2.069-4.623,4.623-4.623c2.552,0,4.623,2.069,4.623,4.623S14.546,16.602,11.994,16.602z M16.801,8.263 c-0.597,0-1.078-0.482-1.078-1.078s0.481-1.078,1.078-1.078c0.595,0,1.077,0.482,1.077,1.078S17.396,8.263,16.801,8.263z">
                                     </path>
@@ -156,8 +157,8 @@
                 </div>
 
                 <label for="menu-toggle" class="cursor-pointer md:hidden block">
-                    <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="20"
-                        height="20" viewBox="0 0 20 20">
+                    <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 20 20">
                         <title>menu</title>
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                     </svg>
@@ -168,7 +169,7 @@
                 <div class="hidden md:block w-full md:w-auto" id="menu">
                     <nav class="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none"
                         data-aos="fade-up" data-aos-delay="600">
-                        <ul class="md:flex items-center">
+                        <ul class="md:flex md:items-center md:space-x-2">
                             <li>
                                 <a class="py-2 inline-block md:text-white lg:block font-semibold"
                                     href="{{ route('home') }}">Beranda</a>
@@ -177,35 +178,49 @@
                                 <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
                                     href="{{ route('about') }}#pray">Tentang Kami</a>
                             </li>
-                            <!-- EVENT MASJID BUTTON -->
                             <li class="relative md:ml-4">
-                                <button onclick="toggleEventMenu()"
-                                    class="py-2 inline-block md:text-white md:px-2 font-semibold focus:outline-none">
-                                    Event Masjid
-                                </button>
+    <button onclick="toggleEventMenu()"
+        class="py-2 inline-block md:px-2 font-semibold focus:outline-none
+            {{ request()->routeIs('ikatan','pesantren','qurban','bumm')
+                ? 'text-blue-600 bg-gray-100 rounded-md'
+                : 'md:text-white' }}">
+        Event Masjid
+    </button>
 
-                                <!-- Pop-up Menu dengan transisi -->
-                                <ul id="eventMenu"
-                                    class="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-56 z-50 transition-all duration-300 opacity-0 scale-95 pointer-events-none">
-                                    <li>
-                                        <a href="{{ route('ikatan') }}" class="block px-4 py-2 hover:bg-gray-100">Ikatan
-                                            Remaja Masjid</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('pesantren') }}"
-                                            class="block px-4 py-2 hover:bg-gray-100">Pesantren Kilat Ramadhan</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('qurban') }}"
-                                            class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri
-                                            Item</a>
-                                    </li>
+    <ul id="eventMenu"
+        class="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg min-w-[220px]
+               z-50 transition-all duration-300 opacity-0 scale-95 pointer-events-none overflow-visible">
+        <li>
+            <a href="{{ route('ikatan') }}"
+               class="block px-4 py-2 hover:bg-gray-100
+                      {{ request()->routeIs('ikatan') ? 'bg-gray-100 font-semibold text-blue-600' : '' }}">
+                Ikatan Remaja Masjid
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('pesantren') }}"
+               class="block px-4 py-2 hover:bg-gray-100
+                      {{ request()->routeIs('pesantren') ? 'bg-gray-100 font-semibold text-blue-600' : '' }}">
+                Pesantren Kilat Ramadhan
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('qurban') }}"
+               class="block px-4 py-2 hover:bg-gray-100
+                      {{ request()->routeIs('qurban') ? 'bg-gray-100 font-semibold text-blue-600' : '' }}">
+                Qurban
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('bumm') }}"
+               class="block px-4 py-2 hover:bg-gray-100
+                      {{ request()->routeIs('bumm') ? 'bg-gray-100 font-semibold text-blue-600' : '' }}">
+                BUMM
+            </a>
+        </li>
+    </ul>
+</li>
 
-                                </ul>
-                            </li>
 
                             <!-- SCRIPT -->
                             <script>
@@ -223,7 +238,7 @@
                                 }
 
                                 // Optional: Klik di luar menu untuk menutupnya
-                                window.addEventListener('click', function(e) {
+                                window.addEventListener('click', function (e) {
                                     const menu = document.getElementById('eventMenu');
                                     const button = document.querySelector('button[onclick="toggleEventMenu()"]');
                                     if (!menu.contains(e.target) && !button.contains(e.target)) {
@@ -240,11 +255,15 @@
                             <li class="md:ml-4 lg:block md:hidden">
                                 <!-- Perubahan: link ke route home + anchor #pray -->
                                 <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                                    href="{{ route('galery') }}">Galery</a>
+                            </li>
+                            <li class="md:ml-4 lg:block md:hidden">
+                                <!-- Perubahan: link ke route home + anchor #pray -->
+                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
                                     href="{{ route('contact') }}">Kontak kami</a>
                             </li>
                             <li class="md:ml-6 mt-3 md:mt-0">
-                                <a href="{{ route('login') }}"
-                                    class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
+                                <a href="{{ route('login') }}" class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
                                            transition-all duration-300 ease-in-out 
                                            hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
                                     Log In As Admin
@@ -390,9 +409,9 @@
 
             <!-- Search Form (cari produk) -->
             <div class="mb-12" data-aos="fade-up" data-aos-delay="100">
-                <form action="{{ url()->current() }}#koprotin" method="GET" class="flex items-center justify-center gap-4">
-                    <input type="text" name="search"
-                        placeholder="Cari produk, misal: Kopi, Roti, Indomie, Piscok..."
+                <form action="{{ url()->current() }}#koprotin" method="GET"
+                    class="flex items-center justify-center gap-4">
+                    <input type="text" name="search" placeholder="Cari produk, misal: Kopi, Roti, Indomie, Piscok..."
                         value="{{ request('search') }}"
                         class="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-200" />
                     <button type="submit"
@@ -406,9 +425,11 @@
             <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4" data-aos="fade-up" data-aos-delay="200">
                 @forelse($products as $product)
                     <!-- Card Produk -->
-                    <div class="article-card bg-gray-50 border border-gray-200 rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div
+                        class="article-card bg-gray-50 border border-gray-200 rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
                         <!-- Gambar Thumbnail -->
-                        <div class="w-full h-48 overflow-hidden cursor-pointer" onclick="openProductModal({{ $product->id }})">
+                        <div class="w-full h-48 overflow-hidden cursor-pointer"
+                            onclick="openProductModal({{ $product->id }})">
                             @if ($product->image)
                                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
                                     class="w-full h-full object-cover">
@@ -464,8 +485,7 @@
                                     class="w-full h-64 sm:h-72 object-cover rounded-xl shadow-md">
                             @else
                                 <img src="https://source.unsplash.com/collection/190727/400x300?coffee"
-                                    alt="{{ $product->name }}"
-                                    class="w-full h-64 sm:h-72 object-cover rounded-xl shadow-md">
+                                    alt="{{ $product->name }}" class="w-full h-64 sm:h-72 object-cover rounded-xl shadow-md">
                             @endif
                         </div>
 
@@ -499,7 +519,7 @@
         <script>
             // Fungsi untuk menambah jumlah
             document.querySelectorAll('.quantity-increase').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     const qtyElem = this.parentElement.querySelector('.quantity-value');
                     let currentValue = parseInt(qtyElem.getAttribute('data-value')) || 0;
                     currentValue++;
@@ -510,7 +530,7 @@
 
             // Fungsi untuk mengurangi jumlah
             document.querySelectorAll('.quantity-decrease').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     const qtyElem = this.parentElement.querySelector('.quantity-value');
                     let currentValue = parseInt(qtyElem.getAttribute('data-value')) || 0;
                     if (currentValue > 0) currentValue--;
@@ -521,7 +541,7 @@
 
             // Update tombol Beli agar menyisipkan jumlah ke pesan WhatsApp tanpa URL gambar
             document.querySelectorAll('.buy-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
+                btn.addEventListener('click', function (e) {
                     const card = this.closest('.article-card');
                     const qtyElem = card.querySelector('.quantity-value');
                     const quantity = parseInt(qtyElem.getAttribute('data-value')) || 0;
@@ -628,7 +648,7 @@
             }
 
             // Tampilkan artikel ekstra dan reset form pencarian/filternya
-            document.getElementById("show-more-btn").addEventListener("click", function() {
+            document.getElementById("show-more-btn").addEventListener("click", function () {
                 // Tampilkan artikel ekstra
                 const extraArticles = document.querySelectorAll('[id^="extra-article"]');
                 extraArticles.forEach(article => article.classList.remove("hidden"));
@@ -664,7 +684,7 @@
 
             // Tampilkan artikel ekstra saat tombol "Lihat Semua Artikel" ditekan
             const showMoreBtn = document.getElementById("show-more-btn");
-            showMoreBtn.addEventListener("click", function() {
+            showMoreBtn.addEventListener("click", function () {
                 const extraArticles = document.querySelectorAll('[id^="extra-article"]');
                 extraArticles.forEach(article => article.classList.remove("hidden"));
                 showMoreBtn.classList.add("hidden");

@@ -9,7 +9,7 @@ class JadwalJumat extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tanggal', 'imam', 'muadzin'];
+    protected $fillable = ['tanggal', 'imam', 'muadzin','khotib'];
 
     protected $casts = [
         'tanggal' => 'date',

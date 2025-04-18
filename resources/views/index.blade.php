@@ -171,7 +171,7 @@
                 <div class="hidden md:block w-full md:w-auto" id="menu">
                     <nav class="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none"
                         data-aos="fade-up" data-aos-delay="600">
-                        <ul class="md:flex items-center">
+                        <ul class="md:flex md:items-center md:space-x-1">
                             <!-- BERANDA (aktif) -->
                             <li>
                                 <a class="py-2 inline-block md:px-2 font-semibold 
@@ -210,8 +210,7 @@
                                             class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri
-                                            Item</a>
+                                        <a href="{{ route('bumm') }}" class="block px-4 py-2 hover:bg-gray-100">BUMM</a>
                                     </li>
                                 </ul>
                             </li>
@@ -249,6 +248,11 @@
                                     href="{{ route('news') }}">
                                     Berita
                                 </a>
+                            </li>
+                            <li class="md:ml-4 lg:block md:hidden">
+                                <!-- Perubahan: link ke route home + anchor #pray -->
+                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                                    href="{{ route('galery') }}">Galery</a>
                             </li>
 
                             <!-- KONTAK KAMI -->

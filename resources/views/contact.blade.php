@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="build/tailwind.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -168,7 +169,7 @@
                 <div class="hidden md:block w-full md:w-auto" id="menu">
                     <nav class="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none"
                         data-aos="fade-up" data-aos-delay="600">
-                        <ul class="md:flex items-center">
+                        <ul class="md:flex md:items-center md:space-x-1">
                             <li>
                                 <a class="py-2 inline-block md:text-white lg:block font-semibold"
                                     href="{{ route('home') }}">Beranda</a>
@@ -201,8 +202,7 @@
                                             class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri
-                                            Item</a>
+                                        <a href="{{ route('bumm') }}" class="block px-4 py-2 hover:bg-gray-100">BUMM</a>
                                     </li>
                                 </ul>
                             </li>
@@ -236,6 +236,11 @@
                                 <!-- Perubahan: link ke route home + anchor #pray -->
                                 <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
                                     href="{{ route('news') }}">Berita</a>
+                            </li>
+                            <li class="md:ml-4 lg:block md:hidden">
+                                <!-- Perubahan: link ke route home + anchor #pray -->
+                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                                    href="{{ route('galery') }}">Galery</a>
                             </li>
                             <li class="md:ml-4">
                                 <a class="py-2 inline-block md:px-2 font-semibold text-blue-600 border-b-4 border-blue-600 bg-blue-100 rounded-md animate__animated animate__fadeInDown"

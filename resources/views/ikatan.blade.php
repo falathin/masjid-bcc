@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="build/tailwind.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
@@ -169,7 +170,7 @@
                     <nav class="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none"
                         data-aos="fade-up" data-aos-delay="600">
 
-                        <ul class="md:flex items-center justify-center space-x-4 relative z-10">
+                        <ul class="md:flex items-center justify-center space-x-3 relative z-10">
                             <li>
                                 <a href="{{ route('home') }}"
                                     class="py-2 inline-block md:text-white font-semibold">Beranda</a>
@@ -208,10 +209,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('galery') }}"
-                                            class="block px-4 py-2 hover:bg-gray-100 {{ request()->routeIs('galery') ? 'bg-gray-100 font-semibold text-blue-600' : '' }}">
-                                            Galeri Item
-                                        </a>
+                                        <a href="{{ route('bumm') }}" class="block px-4 py-2 hover:bg-gray-100">BUMM</a>
                                     </li>
                                 </ul>
                             </li>
@@ -219,6 +217,11 @@
                             <li>
                                 <a href="{{ route('news') }}"
                                     class="py-2 inline-block md:text-white font-semibold">Berita</a>
+                            </li>
+                            <li class="md:ml-4 lg:block md:hidden">
+                                <!-- Perubahan: link ke route home + anchor #pray -->
+                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                                    href="{{ route('galery') }}">Galery</a>
                             </li>
                             <li>
                                 <a href="{{ route('contact') }}"

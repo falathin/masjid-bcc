@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="build/tailwind.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
@@ -168,7 +169,7 @@
                 <div class="hidden md:block w-full md:w-auto" id="menu">
                     <nav class="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none"
                         data-aos="fade-up" data-aos-delay="600">
-                        <ul class="md:flex items-center">
+                        <ul class="md:flex md:items-center md:space-x-1">
                             <li>
                                 <a class="py-2 inline-block md:text-white lg:block font-semibold"
                                     href="{{ route('home') }}">Beranda</a>
@@ -201,8 +202,7 @@
                                             class="block px-4 py-2 hover:bg-gray-100">Qurban</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('galery') }}" class="block px-4 py-2 hover:bg-gray-100">Galeri
-                                            Item</a>
+                                        <a href="{{ route('bumm') }}" class="block px-4 py-2 hover:bg-gray-100">BUMM</a>
                                     </li>
                                 </ul>
                             </li>
@@ -237,6 +237,11 @@
                                     href="{{ route('news') }}">
                                     Berita
                                 </a>
+                            </li>
+                            <li class="md:ml-4 lg:block md:hidden">
+                                <!-- Perubahan: link ke route home + anchor #pray -->
+                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                                    href="{{ route('galery') }}">Galery</a>
                             </li>
                             <li class="md:ml-4">
                                 <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
@@ -465,9 +470,9 @@
                                             class="ml-4">{{ \Carbon\Carbon::parse($article->date)->format('d M, Y') }}</span>
                                     </div>
                                     <h3 class="text-xl font-semibold mt-3 text-gray-900">{{ $article->title }}</h3>
-                                    <p class="desc text-gray-600 mt-1 overflow-hidden line-clamp-3">
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($article->content), 150) }}
-                                    </p>
+                                    <div class="prose prose-lg max-w-none text-gray-800">
+                            {!! $article->content !!}
+                        </div>
                                     <button onclick="openModal({{ $article->id }})"
                                         class="mt-3 text-blue-600 hover:underline text-sm">
                                         Baca Selengkapnya

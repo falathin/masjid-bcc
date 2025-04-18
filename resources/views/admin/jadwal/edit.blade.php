@@ -37,6 +37,15 @@
             @enderror
         </div>
 
+        <!-- Khotib -->
+        <div class="mb-4">
+            <label for="khotib" class="block font-semibold mb-1 text-emerald-700">Khotib</label>
+            <input type="text" name="khotib" id="khotib" class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-emerald-500" placeholder="Masukkan nama khotib" required value="{{ old('khotib', $jadwal->khotib) }}">
+            @error('khotib')
+                <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+            @enderror
+        </div>
+
         <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-lg shadow transition-colors duration-300">
             Perbarui Jadwal
         </button>

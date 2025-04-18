@@ -13,6 +13,7 @@ class CreateJadwalJumatsTable extends Migration
             $table->date('tanggal'); // Contoh: 2025-04-11
             $table->string('imam'); // Contoh: Ust. H. Ahmad Fauzi
             $table->string('muadzin'); // Contoh: M. Ridwan Nurhidayat
+            $table->string('khotib'); // Contoh: M. Ridwan Nurhidayat
             $table->timestamps();
         });
     }
