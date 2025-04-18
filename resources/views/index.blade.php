@@ -260,31 +260,6 @@
                                 <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
                                     href="{{ route('contact') }}">Kontak Kami</a>
                             </li>
-
-                            @auth
-                                <!-- LOGIN ADMIN -->
-                                <li class="md:ml-6 mt-3 md:mt-0">
-                                    <a href="{{ route('admin.home') }}"
-                                        class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
-                            transition-all duration-300 ease-in-out 
-                            hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
-                                        Masuk halaman dashboard admin
-                                    </a>
-                                </li>
-                            @endauth
-                            @guest
-                                <!-- LOGIN ADMIN -->
-                                <li class="md:ml-6 mt-3 md:mt-0">
-                                    <a href="{{ route('login') }}"
-                                        class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
-                                transition-all duration-300 ease-in-out 
-                                hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
-                                        Log In As Admin
-                                    </a>
-                                </li>
-                            @endguest
-
-
                         </ul>
                     </nav>
                 </div>

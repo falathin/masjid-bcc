@@ -39,6 +39,28 @@
             <div data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
                 <h5 class="uppercase tracking-wider font-semibold text-gray-400">Navigasi Cepat</h5>
                 <ul class="mt-4 space-y-3">
+                @auth
+                                <!-- LOGIN ADMIN -->
+                                <li class="md:ml-6 mt-3 md:mt-0">
+                                    <a href="{{ route('admin.home') }}"
+                                        class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
+                            transition-all duration-300 ease-in-out 
+                            hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
+                                        Masuk halaman dashboard admin
+                                    </a>
+                                </li>
+                            @endauth
+                            @guest
+                                <!-- LOGIN ADMIN -->
+                                <li class="md:ml-6 mt-3 md:mt-0">
+                                    <a href="{{ route('login') }}"
+                                        class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
+                                transition-all duration-300 ease-in-out 
+                                hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
+                                        Log In As Admin
+                                    </a>
+                                </li>
+                            @endguest
                     <li>
                         <a href="{{ route('home') }}"
                             class="flex items-center text-gray-400 hover:text-teal-400 transition-colors duration-300">
@@ -202,7 +224,6 @@
 <li class="flex items-center gap-3">
     <span class="text-purple-600 font-medium">🎤 Khotib:</span> {{ $jadwal->khotib }}
 </li>
-
                     </ul>
                 </div>
             @else
