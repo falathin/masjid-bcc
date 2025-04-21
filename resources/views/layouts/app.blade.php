@@ -78,25 +78,29 @@
                             Buat Jadwal Imam Jum'at
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('home') }}"
+                            class="block py-2 px-4 rounded hover:bg-blue-800 transition {{ Request::routeIs('admin.jadwal.*') ? 'bg-blue-800' : '' }}">
+                            Guest Page
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <form method="POST" action="{{ route('logout') }}" class="px-6 py-4">
                 @csrf
-                <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); this.closest('form').submit();"
-                   class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600">
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
+                    class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600">
                     {{ __('Log Out') }}
                 </a>
             </form>
-            
+
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
+                    {{ __('Log Out') }}
+                </x-responsive-nav-link>
             </form>
         </div>
         <div class="flex-shrink-0 w-14" aria-hidden="true"></div>
@@ -146,13 +150,18 @@
                         Buat Jadwal Imam Jum'at
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('home') }}"
+                        class="block py-2 px-4 rounded hover:bg-blue-800 transition {{ Request::routeIs('admin.jadwal.*') ? 'bg-blue-800' : '' }}">
+                        Guest Page
+                    </a>
+                </li>
             </ul>
         </nav>
         <form method="POST" action="{{ route('logout') }}" class="px-6 py-4">
             @csrf
-            <a href="{{ route('logout') }}"
-               onclick="event.preventDefault(); this.closest('form').submit();"
-               class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600">
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
+                class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600">
                 {{ __('Log Out') }}
             </a>
         </form>

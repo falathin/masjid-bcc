@@ -248,14 +248,6 @@
                                     href="{{ route('contact') }}">Kontak
                                     Kami</a>
                             </li>
-                            <li class="md:ml-6 mt-3 md:mt-0">
-                                <a href="{{ route('login') }}"
-                                    class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
-                                           transition-all duration-300 ease-in-out 
-                                           hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
-                                    Log In As Admin
-                                </a>
-                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -471,8 +463,9 @@
                                     </div>
                                     <h3 class="text-xl font-semibold mt-3 text-gray-900">{{ $article->title }}</h3>
                                     <div class="prose prose-lg max-w-none text-gray-800">
-                            {!! $article->content !!}
-                        </div>
+    {!! \Illuminate\Support\Str::limit(strip_tags($article->content), 100, '...') !!}
+</div>
+
                                     <button onclick="openModal({{ $article->id }})"
                                         class="mt-3 text-blue-600 hover:underline text-sm">
                                         Baca Selengkapnya

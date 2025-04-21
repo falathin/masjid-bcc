@@ -227,12 +227,6 @@
                                 <a href="{{ route('contact') }}"
                                     class="py-2 inline-block md:text-white font-semibold">Kontak Kami</a>
                             </li>
-                            <li>
-                                <a href="{{ route('login') }}"
-                                    class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white transition-all duration-300 ease-in-out hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
-                                    Log In As Admin
-                                </a>
-                            </li>
                         </ul>
 
                         <!-- SCRIPT -->

@@ -248,14 +248,6 @@
                                     Kontak Kami
                                 </a>
                             </li>
-                            <li class="md:ml-6 mt-3 md:mt-0">
-                                <a href="{{ route('login') }}"
-                                    class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white 
-                                           transition-all duration-300 ease-in-out 
-                                           hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
-                                    Log In As Admin
-                                </a>
-                            </li>
                         </ul>
                     </nav>
                 </div>

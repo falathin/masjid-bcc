@@ -181,7 +181,7 @@
                             <!-- EVENT MASJID BUTTON -->
                             <li class="relative">
                                 <button onclick="toggleEventMenu()"
-                                    class="py-2 px-4 font-semibold text-white border-b-4 border-transparent rounded-md bg-blue-600 hover:bg-blue-700 transition">
+                                    class="py-2 inline-block md:text-white font-semibold">
                                     Event Masjid
                                 </button>
                 
@@ -217,17 +217,11 @@
                             </li>
                             <li class="md:ml-4 lg:block md:hidden">
                                 <!-- Perubahan: link ke route home + anchor #pray -->
-                                <a class="py-2 inline-block md:text-white md:px-2 font-semibold"
+                                <a class="py-2 inline-block md:px-2 font-semibold text-blue-600 border-b-4 border-blue-600 bg-blue-100 rounded-md animate__animated animate__fadeInDown"
                                     href="{{ route('galery') }}">Galery</a>
                             </li>
                             <li>
                                 <a href="{{ route('contact') }}" class="py-2 inline-block md:text-white font-semibold">Kontak Kami</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('login') }}"
-                                    class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 rounded border border-white md:bg-transparent md:border md:text-white transition-all duration-300 ease-in-out hover:bg-white hover:text-blue-700 hover:shadow-lg hover:scale-105">
-                                    Log In As Admin
-                                </a>
                             </li>
                         </ul>
                 
@@ -364,37 +358,37 @@
             <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" data-aos="fade-up" data-aos-delay="100">
             <!-- Gallery Item 1 -->
             <div class="relative group">
-                <img src="https://source.unsplash.com/600x400/?mosque" alt="Kegiatan Masjid" 
+                <img src="{{ asset('images/IMG-20250421-WA0014.jpg') }}" alt="Kegiatan Masjid" 
                     class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105" 
                     onclick="openGalleryModal(this.src)">
             </div>
             <!-- Gallery Item 2 -->
             <div class="relative group">
-                <img src="https://source.unsplash.com/600x400/?prayer" alt="Kegiatan Jamaah" 
+                <img src="{{ asset('images/IMG-20250421-WA0015.jpg') }}" alt="Kegiatan Jamaah" 
                     class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105" 
                     onclick="openGalleryModal(this.src)">
             </div>
             <!-- Gallery Item 3 -->
             <div class="relative group">
-                <img src="https://source.unsplash.com/600x400/?quran" alt="Pengajian" 
+                <img src="{{ asset('images/IMG-20250421-WA0016.jpg') }}" alt="Pengajian" 
                     class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105" 
                     onclick="openGalleryModal(this.src)">
             </div>
             <!-- Gallery Item 4 -->
             <div class="relative group">
-                <img src="https://source.unsplash.com/600x400/?mosque,community" alt="Kegiatan Sosial" 
+                <img src="{{ asset('images/IMG-20250421-WA0017.jpg') }}" alt="Kegiatan Sosial" 
                     class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105" 
                     onclick="openGalleryModal(this.src)">
             </div>
             <!-- Gallery Item 5 -->
             <div class="relative group">
-                <img src="https://source.unsplash.com/600x400/?imam" alt="Sesi Kajian" 
+                <img src="{{ asset('images/IMG-20250421-WA0018.jpg') }}" alt="Sesi Kajian" 
                     class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105" 
                     onclick="openGalleryModal(this.src)">
             </div>
             <!-- Gallery Item 6 -->
             <div class="relative group">
-                <img src="https://source.unsplash.com/600x400/?mosque,night" alt="Suasana Malam Masjid" 
+                <img src="{{ asset('images/IMG-20250421-WA0019.jpg') }}" alt="Suasana Malam Masjid" 
                     class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105" 
                     onclick="openGalleryModal(this.src)">
             </div>
