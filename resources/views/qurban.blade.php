@@ -300,9 +300,9 @@
                 <div class="lg:w-1/2 mt-8 lg:mt-0 lg:pl-12" data-aos="fade-left" data-aos-delay="800">
                 <div id="hero-slider" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer" style="border: 1px solid #ccc;">
                     <div id="slider-inner" class="flex transition-transform duration-500 ease-in-out">
-                    <img src="images/makanan-slider-1.jpg" alt="Kegiatan Qurban 1" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
-                    <img src="images/makanan-slider-2.jpg" alt="Kegiatan Qurban 2" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
-                    <img src="images/makanan-slider-3.jpg" alt="Kegiatan Qurban 3" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                    <img src="{{ asset('images/qurban/IMG-20250505-WA0011.jpg')}}" alt="Kegiatan Qurban 1" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                    <img src="{{ asset('images/qurban/IMG-20250505-WA0012.jpg')}}" alt="Kegiatan Qurban 2" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+                    <img src="{{ asset('images/qurban/IMG-20250505-WA0014.jpg')}}" alt="Kegiatan Qurban 3" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
                     </div>
                 </div>
                 </div>
@@ -371,37 +371,37 @@
             <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" data-aos="fade-up" data-aos-delay="100">
                 <!-- Gallery Item 1 -->
                 <div class="relative group">
-                    <img src="https://source.unsplash.com/600x400/?qurban,mosque" alt="Kegiatan Qurban Masjid"
+                    <img src="{{ asset('images/qurban/IMG-20250505-WA0011.jpg')}}" alt="Kegiatan Qurban Masjid"
                         class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
                         onclick="openGalleryModal(this.src)">
                 </div>
                 <!-- Gallery Item 2 -->
                 <div class="relative group">
-                    <img src="https://source.unsplash.com/600x400/?qurban,crowd" alt="Kumpulan Jamaah Qurban"
+                    <img src="{{ asset('images/qurban/IMG-20250505-WA0012.jpg')}}" alt="Kumpulan Jamaah Qurban"
                         class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
                         onclick="openGalleryModal(this.src)">
                 </div>
                 <!-- Gallery Item 3 -->
                 <div class="relative group">
-                    <img src="https://source.unsplash.com/600x400/?qurban,event" alt="Acara Qurban"
+                    <img src="{{ asset('images/qurban/IMG-20250505-WA0013.jpg')}}" alt="Acara Qurban"
                         class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
                         onclick="openGalleryModal(this.src)">
                 </div>
                 <!-- Gallery Item 4 -->
                 <div class="relative group">
-                    <img src="https://source.unsplash.com/600x400/?qurban,community" alt="Kegiatan Sosial Qurban"
+                    <img src="{{ asset('images/qurban/IMG-20250505-WA0014.jpg')}}" alt="Kegiatan Sosial Qurban"
                         class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
                         onclick="openGalleryModal(this.src)">
                 </div>
                 <!-- Gallery Item 5 -->
                 <div class="relative group">
-                    <img src="https://source.unsplash.com/600x400/?qurban,donation" alt="Donasi Qurban"
+                    <img src="{{ asset('images/qurban/IMG-20250505-WA0015.jpg')}}" alt="Donasi Qurban"
                         class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
                         onclick="openGalleryModal(this.src)">
                 </div>
                 <!-- Gallery Item 6 -->
                 <div class="relative group">
-                    <img src="https://source.unsplash.com/600x400/?qurban,celebration" alt="Perayaan Qurban"
+                    <img src="{{ asset('images/qurban/IMG-20250505-WA0011.jpg')}}" alt="Perayaan Qurban"
                         class="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
                         onclick="openGalleryModal(this.src)">
                 </div>
