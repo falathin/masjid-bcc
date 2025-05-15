@@ -137,8 +137,8 @@
                         <li class="ml-6">
                             <a href="https://www.instagram.com/alikhlasbcc?igsh=eTNrMW9iYTN1NTVr" target="_blank"
                                 title="Instagram">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" class="fill-current">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    class="fill-current">
                                     <path
                                         d="M20.947,8.305c-0.011-0.757-0.151-1.508-0.419-2.216c-0.469-1.209-1.424-2.165-2.633-2.633 c-0.699-0.263-1.438-0.404-2.186-0.42C14.747,2.993,14.442,2.981,12,2.981s-2.755,0-3.71,0.055 c-0.747,0.016-1.486,0.157-2.185,0.42C4.896,3.924,3.94,4.88,3.472,6.089C3.209,6.788,3.067,7.527,3.053,8.274 c-0.043,0.963-0.056,1.268-0.056,3.71s0,2.754,0.056,3.71c0.015,0.748,0.156,1.486,0.419,2.187 c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45c0.963,0.043,1.268,0.056,3.71,0.056s2.755,0,3.71-0.056 c0.747-0.015,1.486-0.156,2.186-0.419c1.209-0.469,2.164-1.425,2.633-2.633c0.263-0.7,0.404-1.438,0.419-2.187 c0.043-0.962,0.056-1.267,0.056-3.71C21.003,9.572,21.003,9.262,20.947,8.305z M11.994,16.602c-2.554,0-4.623-2.069-4.623-4.623 s2.069-4.623,4.623-4.623c2.552,0,4.623,2.069,4.623,4.623S14.546,16.602,11.994,16.602z M16.801,8.263 c-0.597,0-1.078-0.482-1.078-1.078s0.481-1.078,1.078-1.078c0.595,0,1.077,0.482,1.077,1.078S17.396,8.263,16.801,8.263z">
                                     </path>
@@ -157,8 +157,8 @@
                 </div>
 
                 <label for="menu-toggle" class="cursor-pointer md:hidden block">
-                    <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="20"
-                        height="20" viewBox="0 0 20 20">
+                    <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 20 20">
                         <title>menu</title>
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                     </svg>
@@ -245,7 +245,7 @@
                             }
 
                             // Close on click outside
-                            window.addEventListener('click', function(e) {
+                            window.addEventListener('click', function (e) {
                                 const menu = document.getElementById('eventMenu');
                                 const button = document.querySelector('button[onclick="toggleEventMenu()"]');
                                 if (!menu.contains(e.target) && !button.contains(e.target)) {
@@ -260,96 +260,115 @@
         <!-- end header -->
         <!-- start hero Qurban -->
         <div class="bg-gray-100" id="heroHeader">
-            <section class="relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex items-center min-h-screen">
-            <!-- Background image dengan opacity -->
-            <div class="absolute top-0 left-0 w-full h-full z-0" data-aos="fade">
-                <img src="{{ asset('images/cover-bg.jpg') }}" alt="Background" class="w-full h-full object-cover opacity-20">
-            </div>
-        
-            <!-- Container teks dan slider -->
-            <div class="relative z-10 flex flex-col lg:flex-row items-center w-full">
-                <!-- Kolom teks -->
-                <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="200">
-                <h3 class="text-white text-3xl md:text-5xl xl:text-5xl font-bold leading-tight">
-                    Dokumentasi Qurban Masjid
-                </h3>
-                <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
-                    Abadikan momen penuh berkah saat kegiatan qurban di Masjid Al-Ikhlas BCC. Kegiatan ini menjadi wujud nyata kepedulian sosial dan kebersamaan umat.
-                </p>
-                <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
-                    Lihat dokumentasi qurban, mulai dari persiapan hingga pelaksanaan, sebagai bukti nyata kontribusi dan rasa syukur bersama.
-                </p>
-                <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
-                    Kami mengundang Anda untuk menyaksikan dan turut berpartisipasi dalam momen bersejarah ini yang menginspirasi.
-                </p>
-        
-                <!-- Tombol aksi -->
-                <div class="mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="600">
-                    <a href="https://wa.me/+62816973677"
-                    class="px-8 py-4 bg-teal-500 text-white rounded font-semibold text-center hover:bg-teal-600 hover:scale-105 transition-all duration-300 cursor-pointer">
-                    Hubungi Kami
-                    </a>
-                    <a href="{{ route('bumm') }}"
-                    class="px-8 py-4 bg-yellow-400 text-black rounded font-semibold text-center hover:bg-yellow-300 hover:scale-105 transition-all duration-300 cursor-pointer">
-                    Lihat Semua Produk
-                    </a>
+            <section
+                class="relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex items-center min-h-screen">
+                <!-- Background image dengan opacity -->
+                <div class="absolute top-0 left-0 w-full h-full z-0" data-aos="fade">
+                    <img src="{{ asset('images/cover-bg.jpg') }}" alt="Background"
+                        class="w-full h-full object-cover opacity-20">
                 </div>
-                </div>
-        
-                <!-- Kolom slider gambar -->
-                <div class="lg:w-1/2 mt-8 lg:mt-0 lg:pl-12" data-aos="fade-left" data-aos-delay="800">
-                <div id="hero-slider" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer" style="border: 1px solid #ccc;">
-                    <div id="slider-inner" class="flex transition-transform duration-500 ease-in-out">
-                    <img src="{{ asset('images/qurban/IMG-20250505-WA0011.jpg')}}" alt="Kegiatan Qurban 1" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
-                    <img src="{{ asset('images/qurban/IMG-20250505-WA0012.jpg')}}" alt="Kegiatan Qurban 2" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
-                    <img src="{{ asset('images/qurban/IMG-20250505-WA0014.jpg')}}" alt="Kegiatan Qurban 3" class="w-full flex-shrink-0 object-cover transform transition duration-500 hover:scale-105">
+
+                <!-- Container teks dan slider -->
+                <div class="relative z-10 flex flex-col lg:flex-row items-center w-full">
+                    <!-- Kolom teks -->
+                    <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="200">
+                        <h3 class="text-white text-3xl md:text-5xl xl:text-5xl font-bold leading-tight">
+                            Dokumentasi Qurban Masjid
+                        </h3>
+                        <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
+                            Abadikan momen penuh berkah saat kegiatan qurban di Masjid Al-Ikhlas BCC. Kegiatan ini
+                            menjadi wujud nyata kepedulian sosial dan kebersamaan umat.
+                        </p>
+                        <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
+                            Lihat dokumentasi qurban, mulai dari persiapan hingga pelaksanaan, sebagai bukti nyata
+                            kontribusi dan rasa syukur bersama.
+                        </p>
+                        <p class="text-blue-100 text-xl md:text-2xl leading-snug mt-4">
+                            Kami mengundang Anda untuk menyaksikan dan turut berpartisipasi dalam momen bersejarah ini
+                            yang menginspirasi.
+                        </p>
+
+                        <!-- Tombol aksi -->
+                        <div class="mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="600">
+                            <a href="https://wa.me/+62816973677"
+                                class="px-8 py-4 bg-teal-500 text-white rounded font-semibold text-center hover:bg-teal-600 hover:scale-105 transition-all duration-300 cursor-pointer">
+                                Hubungi Kami
+                            </a>
+                            <a href="{{ route('bumm') }}"
+                                class="px-8 py-4 bg-yellow-400 text-black rounded font-semibold text-center hover:bg-yellow-300 hover:scale-105 transition-all duration-300 cursor-pointer">
+                                Lihat Semua Produk
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kolom slider gambar -->
+                    <div class="lg:w-1/2 mt-8 lg:mt-0 lg:pl-12" data-aos="fade-left" data-aos-delay="800">
+                        <div id="hero-slider" class=" bg-white relative overflow-hidden rounded-xl shadow-lg">
+                            <div id="slider-inner" class="flex transition-transform duration-500 ease-in-out">
+                                @php
+                                    $qurbanImages = [
+                                        ['src' => 'images/qurban/Cetak Akhir.jpg', 'alt' => 'Kegiatan Qurban 1'],
+                                        ['src' => 'images/qurban/Flyer Qurban.jpg', 'alt' => 'Kegiatan Qurban 2'],
+                                        ['src' => 'images/qurban/Idul Adha Al Ikhlas 1.png', 'alt' => 'Kegiatan Qurban 3']
+                                    ];
+                                @endphp
+
+                                @foreach ($qurbanImages as $img)
+                                    <div class="relative w-full flex-shrink-0">
+                                        <div class="overflow-hidden group rounded-xl">
+                                            <img src="{{ asset($img['src']) }}" alt="{{ $img['alt'] }}"
+                                                class="w-full max-h-[450px] object-contain mx-auto transition-transform duration-300 group-hover:scale-110">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                </div>
-            </div>
-        
-            <!-- Script slider -->
-            <script>
-                const sliderInner = document.getElementById("slider-inner");
-                const slides = sliderInner.querySelectorAll("img");
-                let currentSlide = 0;
-                const totalSlides = slides.length;
-        
-                function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
-                }
-        
-                let slideInterval = setInterval(nextSlide, 3000);
-                let startX = 0;
-                let moveX = 0;
-        
-                sliderInner.addEventListener("touchstart", (e) => {
-                clearInterval(slideInterval);
-                startX = e.touches[0].clientX;
-                });
-        
-                sliderInner.addEventListener("touchmove", (e) => {
-                moveX = e.touches[0].clientX - startX;
-                });
-        
-                sliderInner.addEventListener("touchend", () => {
-                if (moveX > 50) {
-                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                } else if (moveX < -50) {
-                    currentSlide = (currentSlide + 1) % totalSlides;
-                }
-                sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
-                slideInterval = setInterval(nextSlide, 3000);
-                moveX = 0;
-                });
-        
-                document.getElementById("hero-slider").addEventListener("click", () => {
-                clearInterval(slideInterval);
-                nextSlide();
-                slideInterval = setInterval(nextSlide, 3000);
-                });
-            </script>
+
+                <!-- Script slider -->
+                <script>
+                    const sliderInner = document.getElementById("slider-inner");
+                    const slides = sliderInner.querySelectorAll("img");
+                    let currentSlide = 0;
+                    const totalSlides = slides.length;
+
+                    function nextSlide() {
+                        currentSlide = (currentSlide + 1) % totalSlides;
+                        sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    }
+
+                    let slideInterval = setInterval(nextSlide, 3000);
+                    let startX = 0;
+                    let moveX = 0;
+
+                    sliderInner.addEventListener("touchstart", (e) => {
+                        clearInterval(slideInterval);
+                        startX = e.touches[0].clientX;
+                    });
+
+                    sliderInner.addEventListener("touchmove", (e) => {
+                        moveX = e.touches[0].clientX - startX;
+                    });
+
+                    sliderInner.addEventListener("touchend", () => {
+                        if (moveX > 50) {
+                            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                        } else if (moveX < -50) {
+                            currentSlide = (currentSlide + 1) % totalSlides;
+                        }
+                        sliderInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+                        slideInterval = setInterval(nextSlide, 3000);
+                        moveX = 0;
+                    });
+
+                    document.getElementById("hero-slider").addEventListener("click", () => {
+                        clearInterval(slideInterval);
+                        nextSlide();
+                        slideInterval = setInterval(nextSlide, 3000);
+                    });
+                </script>
             </section>
         </div>
         <!-- end hero Qurban -->
@@ -439,7 +458,7 @@
             }
 
             // Tutup modal jika klik di luar gambar
-            document.getElementById('galleryModal').addEventListener('click', function(e) {
+            document.getElementById('galleryModal').addEventListener('click', function (e) {
                 if (e.target === this) {
                     closeGalleryModal();
                 }
@@ -478,7 +497,7 @@
             }
 
             // Optional: Tutup modal jika klik di luar gambar
-            document.getElementById('galleryModal').addEventListener('click', function(e) {
+            document.getElementById('galleryModal').addEventListener('click', function (e) {
                 if (e.target === this) {
                     closeGalleryModal();
                 }
@@ -557,7 +576,7 @@
             }
 
             // Tampilkan artikel ekstra dan reset form pencarian/filternya
-            document.getElementById("show-more-btn").addEventListener("click", function() {
+            document.getElementById("show-more-btn").addEventListener("click", function () {
                 // Tampilkan artikel ekstra
                 const extraArticles = document.querySelectorAll('[id^="extra-article"]');
                 extraArticles.forEach(article => article.classList.remove("hidden"));
@@ -593,7 +612,7 @@
 
             // Tampilkan artikel ekstra saat tombol "Lihat Semua Artikel" ditekan
             const showMoreBtn = document.getElementById("show-more-btn");
-            showMoreBtn.addEventListener("click", function() {
+            showMoreBtn.addEventListener("click", function () {
                 const extraArticles = document.querySelectorAll('[id^="extra-article"]');
                 extraArticles.forEach(article => article.classList.remove("hidden"));
                 showMoreBtn.classList.add("hidden");
