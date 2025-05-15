@@ -18,12 +18,12 @@
             @enderror
         </div>
 
-        <!-- Saldo Awal (default value diambil dari kas akhir terbaru, jika ada) -->
+        <!-- Saldo Awal -->
         <div class="mb-4">
             <label for="kas_awal" class="block font-semibold mb-1 text-emerald-700">Saldo Awal</label>
             <div class="relative">
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-emerald-600">Rp</span>
-                <input type="text" name="kas_awal" id="kas_awal" class="w-full pl-10 pr-4 py-2 border rounded focus:ring-2 focus:ring-emerald-500" placeholder="0" required value="{{ old('kas_awal', isset($latestKas) ? $latestKas->kas_akhir : 0) }}">
+                <input type="text" name="kas_awal_display" id="kas_awal" class="w-full pl-10 pr-4 py-2 border rounded focus:ring-2 focus:ring-emerald-500" placeholder="0" required value="{{ old('kas_awal', isset($latestKas) ? $latestKas->kas_akhir : 0) }}">
             </div>
             @error('kas_awal')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
@@ -35,7 +35,7 @@
             <label for="pemasukan" class="block font-semibold mb-1 text-emerald-700">Pemasukan</label>
             <div class="relative">
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-emerald-600">+ Rp</span>
-                <input type="text" name="pemasukan" id="pemasukan" class="w-full pl-12 pr-4 py-2 border rounded focus:ring-2 focus:ring-emerald-500" placeholder="0" required value="{{ old('pemasukan') }}">
+                <input type="text" name="pemasukan_display" id="pemasukan" class="w-full pl-12 pr-4 py-2 border rounded focus:ring-2 focus:ring-emerald-500" placeholder="0" required value="{{ old('pemasukan') }}">
             </div>
             @error('pemasukan')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
@@ -47,7 +47,7 @@
             <label for="pengeluaran" class="block font-semibold mb-1 text-emerald-700">Pengeluaran</label>
             <div class="relative">
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-red-600">- Rp</span>
-                <input type="text" name="pengeluaran" id="pengeluaran" class="w-full pl-12 pr-4 py-2 border rounded focus:ring-2 focus:ring-red-500" placeholder="0" required value="{{ old('pengeluaran') }}">
+                <input type="text" name="pengeluaran_display" id="pengeluaran" class="w-full pl-12 pr-4 py-2 border rounded focus:ring-2 focus:ring-red-500" placeholder="0" required value="{{ old('pengeluaran') }}">
             </div>
             @error('pengeluaran')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
@@ -67,7 +67,7 @@
             Simpan
         </button>
 
-        <!-- Input Hidden untuk nilai numerik asli (tanpa format) -->
+        <!-- Input Hidden untuk nilai numerik asli -->
         <input type="hidden" name="kas_awal" id="kas_awal_raw">
         <input type="hidden" name="pemasukan" id="pemasukan_raw">
         <input type="hidden" name="pengeluaran" id="pengeluaran_raw">
@@ -75,14 +75,20 @@
 </div>
 
 <script>
-    // Fungsi untuk format angka ribuan (Format Indonesia, misal: 1000000 → 1.000.000)
+    // Format angka ribuan (dengan tanda minus)
     function formatNumber(num) {
-        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        const isNegative = num < 0;
+        const absolute = Math.abs(num).toString();
+        const formatted = absolute.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        return isNegative ? '-' + formatted : formatted;
     }
 
-    // Fungsi untuk mengonversi string format rupiah menjadi angka murni
+    // Konversi string format rupiah menjadi angka murni (termasuk minus)
     function parseNumber(str) {
-        return parseInt(str.replace(/[^0-9]/g, '')) || 0;
+        const hasMinus = str.trim().startsWith('-');
+        const digits = str.replace(/[^0-9]/g, '');
+        const value = parseInt(digits) || 0;
+        return hasMinus ? -value : value;
     }
 
     // Update saldo akhir dan hidden field
@@ -90,29 +96,26 @@
         const kasAwal = parseNumber(document.getElementById('kas_awal').value);
         const pemasukan = parseNumber(document.getElementById('pemasukan').value);
         const pengeluaran = parseNumber(document.getElementById('pengeluaran').value);
-        
         const saldoAkhir = kasAwal + pemasukan - pengeluaran;
+
         document.getElementById('kas_akhir').value = formatNumber(saldoAkhir);
-        
-        // Update nilai hidden untuk pengiriman data asli
         document.getElementById('kas_awal_raw').value = kasAwal;
         document.getElementById('pemasukan_raw').value = pemasukan;
         document.getElementById('pengeluaran_raw').value = pengeluaran;
     }
 
-    // Pasang event listener untuk setiap input yang menggunakan format rupiah
-    document.querySelectorAll('#kas_awal, #pemasukan, #pengeluaran').forEach(input => {
-        input.addEventListener('input', function () {
-            const numericValue = parseNumber(this.value);
-            this.value = formatNumber(numericValue);
+    // Pasang event listener pada input
+    ['kas_awal', 'pemasukan', 'pengeluaran'].forEach(id => {
+        const input = document.getElementById(id);
+        input.addEventListener('input', function() {
+            const raw = parseNumber(this.value);
+            this.value = formatNumber(raw);
             updateSaldo();
         });
     });
 
-    // Set tanggal otomatis jika belum diisi
+    // Set tanggal otomatis
     document.getElementById('tanggal').value = new Date().toISOString().split('T')[0];
-
-    // Initialize saldo saat halaman dimuat
     updateSaldo();
 </script>
 @endsection

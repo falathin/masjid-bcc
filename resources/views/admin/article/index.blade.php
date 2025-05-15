@@ -11,8 +11,8 @@
     </a>
   </div>
 
-{{-- Search & Filter --}}
-<form method="GET" action="{{ route('admin.article.index') }}" class="flex flex-wrap items-center gap-4 mb-6" data-aos="fade-up" data-aos-delay="100">
+  {{-- Search & Filter --}}
+  <form method="GET" action="{{ route('admin.article.index') }}" class="flex flex-wrap items-center gap-4 mb-6" data-aos="fade-up" data-aos-delay="100">
     {{-- Search Box with Icon --}}
     <div class="relative w-full sm:w-64">
       <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -58,42 +58,49 @@
     </div>
   @endif
 
+  {{-- Data Summary --}}
+  <div class="text-sm text-gray-600 mb-2" data-aos="fade-up" data-aos-delay="150">
+    Showing {{ $articles->count() }} of {{ $articles->total() }} articles
+  </div>
+
   {{-- Articles Table --}}
-  <div class="bg-white shadow rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-    <table class="min-w-full divide-y divide-gray-200">
-      <thead class="bg-gray-50">
-        <tr>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-          <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y divide-gray-200">
-        @forelse($articles as $article)
-          <tr data-aos="fade-up" data-aos-delay="300">
-            <td class="px-6 py-4 whitespace-nowrap">
-              <div class="text-sm font-medium text-gray-900">{{ $article->title }}</div>
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $article->category }}</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ \Carbon\Carbon::parse($article->date)->format('d M Y') }}</td>
-            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-              <a href="{{ route('admin.article.show', $article->id) }}" class="text-indigo-600 hover:text-indigo-900">View</a>
-              <a href="{{ route('admin.article.edit', $article->id) }}" class="ml-4 text-green-600 hover:text-green-900">Edit</a>
-              <form action="{{ route('admin.article.destroy', $article->id) }}" method="POST" class="inline-block ml-4" onsubmit="return confirm('Delete this article?');">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
-              </form>
-            </td>
-          </tr>
-        @empty
+  <div class="bg-white shadow rounded-lg overflow-auto" data-aos="fade-up" data-aos-delay="200">
+    <div class="min-w-[600px]"> <!-- ensure horizontal scroll for narrow screens -->
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
           <tr>
-            <td colspan="4" class="px-6 py-4 text-center text-gray-500">No articles found.</td>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
           </tr>
-        @endforelse
-      </tbody>
-    </table>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          @forelse($articles as $article)
+            <tr data-aos="fade-up" data-aos-delay="300">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm font-medium text-gray-900 truncate max-w-xs">{{ $article->title }}</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $article->category }}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ \Carbon\Carbon::parse($article->date)->format('d M Y') }}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
+                <a href="{{ route('admin.article.show', $article->id) }}" class="text-indigo-600 hover:text-indigo-900">View</a>
+                <a href="{{ route('admin.article.edit', $article->id) }}" class="text-green-600 hover:text-green-900">Edit</a>
+                <form action="{{ route('admin.article.destroy', $article->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Delete this article?');">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
+                </form>
+              </td>
+            </tr>
+          @empty
+            <tr>
+              <td colspan="4" class="px-6 py-4 text-center text-gray-500">No articles found.</td>
+            </tr>
+          @endforelse
+        </tbody>
+      </table>
+    </div>
     <div class="p-4">
       {{ $articles->links() }}
     </div>

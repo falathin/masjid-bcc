@@ -10,30 +10,20 @@
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
             <!-- Profil Masjid -->
             <div data-aos="fade-right" data-aos-delay="100" data-aos-anchor-placement="top-bottom">
-                <h3 class="font-bold text-3xl tracking-wide">Masjid Al-Ikhlas</h3>
-                <p class="text-gray-400 mt-4 leading-relaxed">
-                    Masjid Al-Ikhlas adalah pusat kegiatan keagamaan dan sosial yang berdiri sejak tahun 2022 di BCC.
-                    Bergabunglah bersama kami dalam melaksanakan ibadah dan membangun komunitas yang harmonis.
-                </p>
+    <h3 class="font-bold text-3xl tracking-wide">Masjid Al-Ikhlas</h3>
+    <p class="text-gray-400 mt-4 leading-relaxed">
+        Masjid Al-Ikhlas adalah pusat kegiatan keagamaan dan sosial yang berdiri sejak tahun 2022 di BCC.
+        Bergabunglah bersama kami dalam melaksanakan ibadah dan membangun komunitas yang harmonis.
+    </p>
 
-                {{-- <form class="flex items-center mt-6" action="#" method="POST">
-                    @csrf
-                    <div class="w-full">
-                        <label class="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2"
-                            for="email-subscribe">
-                            Langganan Newsletter
-                        </label>
-                        <div class="relative">
-                            <input id="email-subscribe" type="email" placeholder="Masukkan Email Anda"
-                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-4 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
-                            <button type="submit"
-                                class="bg-teal-500 hover:bg-teal-400 text-white px-4 py-2 text-sm font-bold rounded absolute top-0 right-0 my-2 mr-2 transition duration-300">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-                </form> --}}
-            </div>
+    <div class="mt-6 flex items-center space-x-3">
+        <a href="https://inovindo.co.id/" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 hover:underline">
+            <img src="https://inovindo.co.id/assets/images/icon-1676884654.png" alt="Inovindo Logo" class="w-6 h-6">
+            <span class="text-sm text-gray-500 italic">Dipersembahkan oleh tim PT Inovindo Digital Media</span>
+        </a>
+    </div>
+</div>
+
 
             <!-- Navigasi Cepat -->
             <div data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="top-bottom">

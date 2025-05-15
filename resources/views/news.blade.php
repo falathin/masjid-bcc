@@ -137,8 +137,8 @@
                         <li class="ml-6">
                             <a href="https://www.instagram.com/alikhlasbcc?igsh=eTNrMW9iYTN1NTVr" target="_blank"
                                 title="Instagram">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" class="fill-current">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    class="fill-current">
                                     <path
                                         d="M20.947,8.305c-0.011-0.757-0.151-1.508-0.419-2.216c-0.469-1.209-1.424-2.165-2.633-2.633 c-0.699-0.263-1.438-0.404-2.186-0.42C14.747,2.993,14.442,2.981,12,2.981s-2.755,0-3.71,0.055 c-0.747,0.016-1.486,0.157-2.185,0.42C4.896,3.924,3.94,4.88,3.472,6.089C3.209,6.788,3.067,7.527,3.053,8.274 c-0.043,0.963-0.056,1.268-0.056,3.71s0,2.754,0.056,3.71c0.015,0.748,0.156,1.486,0.419,2.187 c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45c0.963,0.043,1.268,0.056,3.71,0.056s2.755,0,3.71-0.056 c0.747-0.015,1.486-0.156,2.186-0.419c1.209-0.469,2.164-1.425,2.633-2.633c0.263-0.7,0.404-1.438,0.419-2.187 c0.043-0.962,0.056-1.267,0.056-3.71C21.003,9.572,21.003,9.262,20.947,8.305z M11.994,16.602c-2.554,0-4.623-2.069-4.623-4.623 s2.069-4.623,4.623-4.623c2.552,0,4.623,2.069,4.623,4.623S14.546,16.602,11.994,16.602z M16.801,8.263 c-0.597,0-1.078-0.482-1.078-1.078s0.481-1.078,1.078-1.078c0.595,0,1.077,0.482,1.077,1.078S17.396,8.263,16.801,8.263z">
                                     </path>
@@ -157,8 +157,8 @@
                 </div>
 
                 <label for="menu-toggle" class="cursor-pointer md:hidden block">
-                    <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="20"
-                        height="20" viewBox="0 0 20 20">
+                    <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 20 20">
                         <title>menu</title>
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                     </svg>
@@ -223,7 +223,7 @@
                                 }
 
                                 // Optional: Klik di luar menu untuk menutupnya
-                                window.addEventListener('click', function(e) {
+                                window.addEventListener('click', function (e) {
                                     const menu = document.getElementById('eventMenu');
                                     const button = document.querySelector('button[onclick="toggleEventMenu()"]');
                                     if (!menu.contains(e.target) && !button.contains(e.target)) {
@@ -281,8 +281,8 @@
                             <!-- Tahun Rilis -->
                             <div
                                 class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded shadow-md hover:shadow-lg hover:scale-105 hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow-300"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow-300" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
@@ -411,8 +411,7 @@
                         placeholder="Cari berita atau judul..."
                         class="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-400 focus:outline-none focus:border-teal-400 transition duration-200" />
                     <div class="absolute inset-y-0 left-3 flex items-center text-gray-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M21 21l-4.35-4.35M10.5 17a6.5 6.5 0 100-13 6.5 6.5 0 000 13z" />
                         </svg>
@@ -445,39 +444,55 @@
             <!-- Grid Artikel -->
             <div id="articles-container" class="min-h-[200px]" data-aos="fade-up" data-aos-delay="200">
                 @if ($articles->count())
+                    <!-- Info jumlah artikel -->
+                    <div class="mb-4 text-sm text-gray-600">
+                        Menampilkan <span class="font-semibold">{{ $articles->count() }}</span> artikel
+                    </div>
+
                     <div class="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
                         @foreach ($articles as $article)
                             <!-- Artikel Card -->
                             <div
-                                class="article-card bg-white rounded-xl border border-gray-200 hover:shadow-lg transition duration-300">
+                                class="article-card bg-white rounded-xl border border-gray-200 hover:shadow-lg transition duration-300 flex flex-col">
+                                <!-- Gambar -->
                                 <div class="w-full h-48 overflow-hidden rounded-t-xl">
                                     <img src="{{ $article->image ? asset('storage/' . $article->image) : 'https://source.unsplash.com/400x300/?mosque' }}"
                                         alt="{{ $article->title }}"
                                         class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
                                 </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-sm text-gray-500">
-                                        <span class="text-teal-500 font-semibold">{{ $article->category }}</span>
-                                        <span
-                                            class="ml-4">{{ \Carbon\Carbon::parse($article->date)->format('d M, Y') }}</span>
-                                    </div>
-                                    <h3 class="text-xl font-semibold mt-3 text-gray-900">{{ $article->title }}</h3>
-                                    <div class="prose prose-lg max-w-none text-gray-800">
-    {!! \Illuminate\Support\Str::limit(strip_tags($article->content), 100, '...') !!}
-</div>
 
+                                <!-- Konten -->
+                                <div class="p-5 flex flex-col flex-grow">
+                                    <!-- Kategori & Tanggal -->
+                                    <div class="flex items-center text-sm text-gray-500 mb-1">
+                                        <span class="text-teal-500 font-semibold">{{ $article->category }}</span>
+                                        <span class="ml-4">{{ \Carbon\Carbon::parse($article->date)->format('d M, Y') }}</span>
+                                    </div>
+
+                                    <!-- Judul -->
+                                    <h3 class="text-xl font-semibold mt-1 mb-2 text-gray-900">
+                                        {{ \Illuminate\Support\Str::limit($article->title, 30) }}
+                                    </h3>
+
+                                    <!-- Isi Ringkasan -->
+                                    <div class="prose prose-sm max-w-none text-gray-800 overflow-hidden"
+                                        style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">
+                                        {!! \Illuminate\Support\Str::limit(strip_tags($article->content), 200, '...') !!}
+                                    </div>
+
+                                    <!-- Baca Selengkapnya -->
                                     <button onclick="openModal({{ $article->id }})"
-                                        class="mt-3 text-blue-600 hover:underline text-sm">
+                                        class="mt-3 text-blue-600 hover:underline text-sm self-start">
                                         Baca Selengkapnya
                                     </button>
-                                    <div class="flex items-center mt-4">
+
+                                    <!-- Penulis -->
+                                    <div class="flex items-center mt-auto pt-4">
                                         <img src="{{ $article->author_photo ? asset('storage/' . $article->author_photo) : 'https://source.unsplash.com/40x40/?man' }}"
-                                            alt="{{ $article->author_name }}"
-                                            class="w-10 h-10 rounded-full object-cover">
+                                            alt="{{ $article->author_name }}" class="w-10 h-10 rounded-full object-cover">
                                         <div class="ml-3 text-sm">
                                             <p class="text-gray-600">Oleh <span
-                                                    class="text-gray-900 font-semibold">{{ $article->author_name }}</span>
-                                            </p>
+                                                    class="text-gray-900 font-semibold">{{ $article->author_name }}</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -498,6 +513,7 @@
                 @endif
             </div>
 
+
             <!-- Pagination -->
             <div class="mt-12">
                 {{ $articles->withQueryString()->links() }}
@@ -507,9 +523,10 @@
         <!-- Modal Popups (keluar dari section) -->
         @foreach ($articles as $article)
             <div id="modal-{{ $article->id }}"
-                class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden px-4 py-8 overflow-y-auto">
-                <div
-                    class="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto animate-fadeIn">
+                class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden px-4 py-8 overflow-auto"
+                onclick="closeModal({{ $article->id }})">
+                <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto animate-fadeIn"
+                    onclick="event.stopPropagation()">
 
                     <!-- Gambar Utama -->
                     <div class="w-full h-60 sm:h-72 md:h-80 lg:h-96 overflow-hidden rounded-t-2xl">
@@ -534,16 +551,16 @@
                         <!-- Metadata -->
                         <div class="flex flex-wrap items-center text-sm text-gray-500 gap-x-6 mb-6">
                             <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor"
-                                    stroke-width="2" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M3 7v10a4 4 0 004 4h10a4 4 0 004-4V7M3 7a4 4 0 014-4h10a4 4 0 014 4M3 7h18" />
                                 </svg>
                                 <span>{{ $article->category }}</span>
                             </div>
                             <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor"
-                                    stroke-width="2" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M8 7V3m8 4V3m-9 8h10m-10 4h10M5 21h14a2 2 0 002-2V7H3v12a2 2 0 002 2z" />
                                 </svg>
@@ -564,7 +581,8 @@
                             <div class="text-sm text-gray-700">
                                 <p class="font-semibold text-gray-900">Oleh: {{ $article->author_name }}</p>
                                 <p class="text-xs mt-0.5 text-gray-500">Diterbitkan pada:
-                                    {{ \Carbon\Carbon::parse($article->date)->format('d M Y') }}</p>
+                                    {{ \Carbon\Carbon::parse($article->date)->format('d M Y') }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -572,20 +590,14 @@
             </div>
         @endforeach
 
-
-        <!-- Script Modal -->
         <script>
             function openModal(id) {
-                document.getElementById(`modal-${id}`).classList.remove('hidden');
-                document.body.classList.add('overflow-hidden');
+                document.getElementById('modal-' + id).classList.remove('hidden');
             }
-
             function closeModal(id) {
-                document.getElementById(`modal-${id}`).classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
+                document.getElementById('modal-' + id).classList.add('hidden');
             }
         </script>
-
         <!-- Animasi opsional -->
         <style>
             @keyframes fadeIn {

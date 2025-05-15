@@ -15,48 +15,38 @@
         </div>
 
         <!-- Filter & Search Form -->
-        <form method="GET" action="{{ route('admin.kas.index') }}" class="mb-6 space-y-6" data-aos="fade-up" data-aos-delay="100">
-            <!-- Baris Pertama: Pencarian dan Tanggal -->
-            <div class="flex flex-col md:flex-row md:items-end md:gap-6 space-y-4 md:space-y-0">
+        <form method="GET" action="{{ route('admin.kas.index') }}" class="mb-8 p-6 bg-white rounded-xl shadow space-y-6" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">Filter Data Kas</h2>
 
+            <div class="flex flex-col md:flex-row md:items-end md:gap-6 space-y-4 md:space-y-0">
                 <!-- Dari Tanggal -->
                 <div class="flex-1">
-                    <label for="tanggal_start" class="block text-sm font-medium text-gray-700 mb-1">Dari Tanggal <span class="text-xs text-gray-500">(default: hari ini)</span></label>
+                    <label for="tanggal_start" class="block text-sm font-semibold text-gray-700 mb-2">
+                        Dari Tanggal <span class="text-xs text-gray-500">(default: hari ini)</span>
+                    </label>
                     <input type="date" name="tanggal_start" id="tanggal_start" value="{{ request('tanggal_start') }}"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition duration-150">
                 </div>
 
                 <!-- Sampai Tanggal -->
                 <div class="flex-1">
-                    <label for="tanggal_end" class="block text-sm font-medium text-gray-700 mb-1">Sampai Tanggal <span class="text-xs text-gray-500">(default: besok)</span></label>
+                    <label for="tanggal_end" class="block text-sm font-semibold text-gray-700 mb-2">
+                        Sampai Tanggal <span class="text-xs text-gray-500">(default: besok)</span>
+                    </label>
                     <input type="date" name="tanggal_end" id="tanggal_end" value="{{ request('tanggal_end') }}"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                </div>
-            </div>
-
-            <!-- Baris Kedua: Kas Akhir dan Tombol -->
-            <div class="flex flex-col md:flex-row md:items-end md:gap-6 space-y-4 md:space-y-0">
-                <!-- Minimal Kas -->
-                <div class="flex-1">
-                    <label for="min_kas" class="block text-sm font-medium text-gray-700 mb-1">Minimal Kas Akhir</label>
-                    <input type="number" name="min_kas" id="min_kas" value="{{ request('min_kas') }}"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                        placeholder="Masukkan nominal minimum">
-                </div>
-
-                <!-- Maksimal Kas -->
-                <div class="flex-1">
-                    <label for="max_kas" class="block text-sm font-medium text-gray-700 mb-1">Maksimal Kas Akhir</label>
-                    <input type="number" name="max_kas" id="max_kas" value="{{ request('max_kas') }}"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                        placeholder="Masukkan nominal maksimum">
+                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition duration-150">
                 </div>
 
                 <!-- Tombol Filter -->
                 <div class="flex-1">
-                    <label class="block text-sm font-medium text-gray-700 mb-1 invisible">Filter</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2 invisible">Filter</label>
                     <button type="submit"
-                        class="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-md">
+                        class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-lg shadow-md transition duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L15 13.414V19a1 1 0 01-1.447.894l-4-2A1 1 0 019 17v-3.586L3.293 6.707A1 1 0 013 6V4z" />
+                        </svg>
                         Filter
                     </button>
                 </div>
